@@ -1,4 +1,5 @@
-const configured = process.env.SITE_URL?.trim();
+// The verified private review origin is the fallback; override when launching publicly.
+const configured = process.env.SITE_URL?.trim() || 'https://priyansh-dobariya-ai-portfolio.yadavkumar49900.chatgpt.site';
 function getSiteUrl() {
   if (!configured) return null;
   const url = new URL(configured);

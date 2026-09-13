@@ -38,7 +38,7 @@ Copy `.env.example` to `.env.local` for local production testing, or add these e
 - `ALLOW_INDEXING=true`: enable indexing only on the final public production deployment.
 - `GOOGLE_SITE_VERIFICATION`: optional Google Search Console HTML verification token.
 
-Rebuild after changing these settings. Canonical URLs, sitemap entries, robots rules, structured data, and social URLs are generated at build time. Without a production URL, the preview deliberately has `noindex` and disallows crawling; no fake domain is emitted.
+Rebuild after changing these settings. Canonical URLs, sitemap entries, robots rules, structured data, and social URLs are generated at build time. The verified private review address is the fallback origin in `lib/site.ts`. The preview deliberately has `noindex` and disallows crawling. Set your final public `SITE_URL` and `ALLOW_INDEXING=true` together at launch.
 
 After public deployment:
 

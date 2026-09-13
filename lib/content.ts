@@ -9,7 +9,7 @@ export const projects = [
 ];
 export const skillGroups = [
   { id:'frontend', title:'Interfaces that feel right.', label:'Frontend', description:'Responsive web experiences, from the first interaction to the finished product.', items:['React','Next.js','TypeScript','JavaScript','HTML & CSS','Responsive UI'] },
-  { id:'backend', title:'Systems that do the work.', label:'Backend', description:'APIs, application logic, and services that connect the whole product.', items:['Node.js','NestJS','Python','FastAPI','REST APIs','GraphQL','n8n'] },
-  { id:'ai', title:'Intelligence, built in.', label:'Applied AI', description:'Language models, retrieval, and agents connected to useful workflows.', items:['LangGraph','LangChain','CrewAI','RAG','Agent orchestration','LLM evaluation','Embeddings'] },
-  { id:'data', title:'A solid foundation.', label:'Data & infrastructure', description:'Databases, caching, and cloud infrastructure behind the experience.', items:['Redis','PostgreSQL','MongoDB','ClickHouse','AWS','Docker','Pinecone','S3','DynamoDB'] },
+  { id:'backend', title:'Systems that do the work.', label:'Backend', description:'NestJS microservices, Stripe payment integrations, and n8n workflows that connect the whole product.', items:['Node.js','NestJS','Python','FastAPI','REST APIs','GraphQL','NestJS microservices','Stripe payments','n8n workflows'] },
+  { id:'ai', title:'Intelligence, built in.', label:'Applied AI', description:'RAG pipelines, embeddings, and AI agents that turn your data into useful answers and actions.', items:['LangGraph','LangChain','CrewAI','RAG pipelines','Agent orchestration','LLM evaluation','Embeddings'] },
+  { id:'data', title:'A solid foundation.', label:'Data & infrastructure', description:'Vector databases, Redis caching, and AWS deployment for reliable production systems.', items:['Redis','PostgreSQL','MongoDB','ClickHouse','Vector databases','AWS deployment','Docker','Pinecone','S3','DynamoDB'] },
 ];

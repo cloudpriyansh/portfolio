@@ -10,7 +10,7 @@ export const metadata:Metadata={
   ...(siteUrl?{metadataBase:new URL(siteUrl),alternates:{canonical:'/'}}:{}),
   title:'Priyansh Dobariya — Full-Stack & Applied AI Engineer',description:profile.description,
   applicationName:'Priyansh Dobariya Portfolio',authors:[{name:profile.name,...(siteUrl?{url:siteUrl}:{})}],creator:profile.name,
-  keywords:['Priyansh Dobariya','Full-stack developer','React','Next.js','Node.js','NestJS','Redis','PostgreSQL','MongoDB','Applied AI Engineer','LLM systems','RAG engineer','AI agents','AI automation','LangGraph','Python','FastAPI'],
+  keywords:['Priyansh Dobariya','Full-stack developer','React','Next.js','Node.js','NestJS','Redis','PostgreSQL','MongoDB','Applied AI Engineer','LLM systems','RAG engineer','AI agents','AI automation','LangGraph','Python','FastAPI','Stripe payments','RAG pipelines','Vector databases','n8n workflows','NestJS microservices','AWS deployment'],
   robots:{index:isIndexable,follow:isIndexable,googleBot:{index:isIndexable,follow:isIndexable,'max-image-preview':'large','max-snippet':-1,'max-video-preview':-1}},
   openGraph:{type:'website',locale:'en_IN',siteName:'Priyansh Dobariya',title:'Priyansh Dobariya — Full-Stack & Applied AI Engineer',description:profile.description,...(siteUrl?{url:siteUrl,images:[{url:`${siteUrl}/og.png`,width:1200,height:630,alt:'Priyansh Dobariya — Applied AI Engineer'}]}:{})},
   twitter:{card:'summary_large_image',title:'Priyansh Dobariya — Full-Stack & Applied AI Engineer',description:profile.description,...(siteUrl?{images:[`${siteUrl}/og.png`]}:{})},

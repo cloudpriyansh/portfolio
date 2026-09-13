@@ -1,4 +1,8 @@
 export const projectArtwork: Record<string, { alt: string; background: string }> = {
+  'voice-agent': {
+    alt: 'Concept illustration of an AI voice-call interface on a smartphone, connected to an appointment calendar and lead profile in cyan and violet light.',
+    background: '#050d25',
+  },
   growstack: {
     alt: 'Emerald glass ribbons flow through a transparent data monolith and resolve into orderly columns, representing conversational analytics.',
     background: '#e6ebe1',

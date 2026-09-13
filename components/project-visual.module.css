@@ -57,3 +57,5 @@
 .zyberonFlow b { font-size:12px; font-weight:450; }
 .zyberonFlow i { color:#5598c7; font-style:normal; }
 @media(max-width:760px) { .zyberonTop { font-size:12px; letter-spacing:.5px; } .zyberonBrand { padding:20px 0; } .zyberonBrand p { margin-top:12px; } .zyberonFlow > span { flex-direction:column; padding:10px 8px; gap:7px; } .zyberonFlow { gap:5px; } .zyberonFlow b { font-size:12px; } }
+
+.concept { position:absolute; left:16px; bottom:14px; margin:0; padding:7px 10px; background:#071329dd; color:#d8eaff; border:1px solid #99cfff30; border-radius:6px; font-size:10px; letter-spacing:.8px; }

@@ -1,6 +1,8 @@
 'use client';
 import { useEffect,useRef } from 'react';
+import { usePathname } from 'next/navigation';
 export function Effects(){
+  const pathname = usePathname();
   const cursor=useRef<HTMLDivElement>(null);
   useEffect(()=>{
     const root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)'),fine=matchMedia('(pointer: fine)');
@@ -24,6 +26,6 @@ export function Effects(){
     const preferences=new MutationObserver(onPreference);preferences.observe(root,{attributes:true,attributeFilter:['data-motion']});
     reduce.addEventListener('change',onPreference);window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll,{passive:true});window.addEventListener('pointermove',onPointer,{passive:true});document.addEventListener('pointerleave',leave);paintScroll();
     return()=>{reveal.disconnect();visibility.disconnect();preferences.disconnect();cancelAnimationFrame(scrollFrame);cancelAnimationFrame(pointerFrame);reduce.removeEventListener('change',onPreference);window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);window.removeEventListener('pointermove',onPointer);document.removeEventListener('pointerleave',leave);};
-  },[]);
+  },[pathname]);
   return <><div className="reading-progress" aria-hidden="true"/><div ref={cursor} className="custom-cursor" aria-hidden="true"><span/></div></>;
 }

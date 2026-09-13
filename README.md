@@ -80,3 +80,11 @@ References: [Next.js static exports](https://nextjs.org/docs/app/guides/static-e
 Growstack has a cinematic emerald glass data sculpture generated with built-in imagegen. Original: `output/imagegen/projects/growstack-original.png`. Exact prompt: `output/imagegen/projects/manifest.json`. Responsive AVIF and WebP exports at 480, 800, and 1280 pixels are in `public/projects/`; images load lazily, reserve their layout space, and respect motion preferences. Rebuild these exports with `node scripts/optimize-project-images.mjs`.
 
 The other three cover requests stalled and were cancelled without completed images. Their existing diagrams remain in place. Their prompts are retained in `output/imagegen/projects/requests.json` for a future generation request.
+
+## Project pages and scroll sequence
+
+The homepage presents one full project card at a time. Native CSS sticky positioning handles the stack; a small requestAnimationFrame update scales the retiring card only while the section is in view. There is no wheel interception or scroll library. Pausing motion, reduced-motion preferences, or a viewport too short for a complete card switch the section to normal document flow. Keyboard focus brings the matching card into view.
+
+Each `lib/content.ts` project ID is its stable slug: `/projects/growstack/`, `/projects/urecruits/`, `/projects/zyberon/`, and `/projects/voice-agent/`. The static detail pages reuse the existing summaries and verified technical points, with room for fuller case-study content later. Add or edit projects in the same data file. Each route has its own title, description, canonical, Open Graph/X fields, and structured data. Public-launch sitemap generation includes all project routes. Private indexing settings remain unchanged.
+
+Implementation: `components/project-showcase.tsx`, `components/project-scroll.tsx`, and `app/projects/[slug]/page.tsx`. Next.js references: [static route generation](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) and [route metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata).

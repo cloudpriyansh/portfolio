@@ -1,0 +1,56 @@
+.page { padding-top: 38px; }
+.back { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); min-height: 44px; }
+.back:hover { color: var(--accent); }
+.intro { padding: 55px 0 50px; }
+.intro h1 { font-size: clamp(52px, 7.8vw, 108px); letter-spacing: -.065em; margin: 25px 0 20px; }
+.tagline { font: italic 400 clamp(29px, 3.5vw, 47px)/1.2 var(--serif); color: var(--accent); margin: 0 0 24px; }
+.description { max-width: 670px; font-size: 19px; line-height: 1.75; color: var(--muted); margin: 0; }
+.cover { border-radius: 16px; overflow: hidden; }
+.cover :global(.project-visual) { width: 100%; height: 440px; padding: 45px; border-radius: 16px; }
+.cover :global(figure.project-visual) { height: auto; max-height: 700px; padding: 0; aspect-ratio: 8/5; }
+.cover :global(.visual-label) { font-size: 14px; }
+.cover :global(.visual-footnote) { left: 45px; bottom: 35px; font-size: 12px; }
+.cover :global(.resume-workflow) { margin-top: 45px; gap: 70px; }
+.cover :global(.commerce-flow) { margin-top: 80px; }
+.cover :global(.waveform) { height: 240px; }
+.overview { display: grid; grid-template-columns: 1fr 1.25fr; gap: 90px; padding: 95px 0 85px; }
+.overview h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.2; margin-top: 18px; }
+.overview h2 .serif { font-style: italic; }
+.details { list-style: none; padding: 0; margin: 0; }
+.details li { display: flex; gap: 25px; padding: 23px 0; border-bottom: 1px solid var(--line); }
+.details li:first-child { padding-top: 0; }
+.details li > span { font-size: 12px; color: var(--accent); padding-top: 6px; }
+.details p { margin: 0; font-size: 17px; line-height: 1.8; color: var(--muted); }
+.stackTitle { font-size: 17px; font-weight: 500; margin: 35px 0 15px; }
+.tags li { font-size: 14px; padding: 8px 13px; }
+.next { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 38px 40px; border: 1px solid var(--line); border-radius: 12px; background: var(--accent-soft); transition: background .25s; }
+.next span { font-size: 12px; letter-spacing: 1.5px; color: var(--muted); }
+.next h2 { font-size: clamp(26px, 3vw, 40px); margin: 13px 0 0; letter-spacing: -1.5px; }
+.next svg { flex-shrink: 0; color: var(--accent); transition: transform .25s; }
+.next:hover svg { transform: translateX(6px); }
+.footer { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 42px 0; font-size: 13px; color: var(--muted); }
+.footer a:last-child { display: inline-flex; gap: 10px; align-items: center; }
+@media (max-width: 760px) {
+  .page { padding-top: 24px; }
+  .intro { padding: 34px 0; }
+  .intro :global(.eyebrow) { font-size: 11px; line-height: 1.7; letter-spacing: 1px; }
+  .intro h1 { font-size: clamp(43px, 11vw, 74px); margin: 22px 0 17px; }
+  .tagline { font-size: 31px; margin-bottom: 20px; }
+  .description { font-size: 17px; line-height: 1.7; }
+  .cover :global(.project-visual) { height: 290px; padding: 24px; }
+  .cover :global(figure.project-visual) { height: auto; padding: 0; }
+  .cover :global(.visual-label) { font-size: 11px; }
+  .cover :global(.visual-footnote) { left: 24px; bottom: 23px; font-size: 9px; letter-spacing: 1px; }
+  .cover :global(.resume-workflow) { gap: 15px; margin-top: 28px; }
+  .cover :global(.commerce-flow) { margin-top: 50px; }
+  .cover :global(.waveform) { height: 143px; }
+  .overview { grid-template-columns: 1fr; gap: 25px; padding: 55px 0; }
+  .overview h2 { margin-bottom: 0; font-size: 36px; }
+  .details li { gap: 17px; padding: 21px 0; }
+  .details p { font-size: 16px; }
+  .details li:first-child { padding-top: 12px; }
+  .next { padding: 27px 23px; gap: 18px; }
+  .next h2 { font-size: 29px; }
+  .next svg { width: 27px; }
+  .footer { flex-wrap: wrap; padding-block: 30px; font-size: 12px; gap: 20px; }
+}

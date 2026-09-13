@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) notFound();
   const title = `${project.name} — Priyansh Dobariya`;
   const url = `${siteUrl}/projects/${project.id}/`;
-  const image = project.id === 'zyberon' ? `${siteUrl}/projects/zyberon-ad-01-800.webp` : projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : null;
+  const image = projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : null;
   return {
     title, description: project.description, alternates: { canonical: url },
     openGraph: { type: 'website', title, description: project.description, url, siteName: profile.name,
-      images: image ? [{ url: image, width: project.id === 'zyberon' ? 800 : 1280, height: project.id === 'zyberon' ? 1000 : 800, alt: projectArtwork[project.id]?.alt ?? 'Sample ad creative from Zyberon AI' }] : [] },
+      images: image ? [{ url: image, width: 1280, height: 800, alt: projectArtwork[project.id].alt }] : [] },
     twitter: { card: image ? 'summary_large_image' : 'summary', title, description: project.description, images: image ? [image] : [] },
   };
 }
@@ -69,7 +69,7 @@ export default async function ProjectPage({ params }: Props) {
           <article><h3>Business intelligence</h3><p>Research products, track profit, and coordinate tasks across the store’s AI tools.</p></article>
         </div>
         <a href="https://zyberon.ai/" target="_blank" rel="noopener noreferrer" className={styles.source}>Explore Zyberon <ArrowUpRight size={16}/></a>
-        <small>Product overview and sample imagery sourced from Zyberon’s official website.</small>
+        <small>Product overview and brand logo sourced from Zyberon’s official website.</small>
       </section>}
       <ScrollPattern variant="signal" anchor=".project-overview" className="project-signal"/>
       <section className={`${styles.overview} project-overview`} aria-labelledby="overview-title">

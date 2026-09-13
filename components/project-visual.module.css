@@ -46,11 +46,14 @@
   .image { transition: none; transform: none; }
 }
 
-.zyberon.zyberon { margin:0; padding:24px; height:auto; aspect-ratio:8/5; display:flex; flex-direction:column; gap:16px; overflow:hidden; background:#f1eee4; color:#202b25; }
-.zyberonHeading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.zyberonHeading img { width:110px; height:auto; }
-.zyberonHeading span { font-size:9px; letter-spacing:1.4px; }
-.adPair { display:flex; justify-content:center; gap:20px; min-height:0; flex:1; }
-.adPair img { min-width:0; width:auto; max-width:44%; height:100%; object-fit:contain; border-radius:8px; box-shadow:0 8px 18px #262b2518; }
-.zyberon figcaption { text-align:center; font-size:10px; letter-spacing:1px; color:#586157; }
-@media(max-width:760px) { .zyberon.zyberon { padding:16px; gap:10px; } .zyberonHeading img { width:85px; } .zyberonHeading span { font-size:7px; letter-spacing:.5px; } .adPair { gap:12px; } .zyberon figcaption { font-size:8px; } }
+.zyberon.zyberon.zyberon { margin:0; padding:clamp(22px,4vw,54px); height:auto; aspect-ratio:8/5; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; color:#f5f8ff; background:radial-gradient(ellipse at 65% 45%,#11386a 0%,#0b1830 42%,#080e19 78%); border:1px solid #1b3453; }
+.zyberonTop { display:flex; justify-content:space-between; gap:16px; color:#88b3d7; font-size:12px; letter-spacing:1.5px; }
+.zyberonBrand { padding:25px 0; }
+.zyberonBrand img { display:block; width:86%; max-width:740px; height:auto; margin:auto; }
+.zyberonBrand p { font-size:clamp(14px,1.6vw,22px); text-align:center; color:#a6bbd6; margin:20px 0 0; }
+.zyberonFlow { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.zyberonFlow > span { display:flex; align-items:center; gap:9px; padding:14px 12px; border:1px solid #81c4ff26; background:#08152580; border-radius:9px; }
+.zyberonFlow svg { width:18px; height:18px; color:#21bfff; flex-shrink:0; }
+.zyberonFlow b { font-size:12px; font-weight:450; }
+.zyberonFlow i { color:#5598c7; font-style:normal; }
+@media(max-width:760px) { .zyberonTop { font-size:12px; letter-spacing:.5px; } .zyberonBrand { padding:20px 0; } .zyberonBrand p { margin-top:12px; } .zyberonFlow > span { flex-direction:column; padding:10px 8px; gap:7px; } .zyberonFlow { gap:5px; } .zyberonFlow b { font-size:12px; } }

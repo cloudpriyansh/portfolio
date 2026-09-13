@@ -54,3 +54,13 @@
   .next svg { width: 27px; }
   .footer { flex-wrap: wrap; padding-block: 30px; font-size: 12px; gap: 20px; }
 }
+
+.productContext { padding-top:70px; max-width:100%; }
+.productContext h2 { font-size:clamp(28px,4vw,44px); letter-spacing:-.04em; margin:18px 0; }
+.productContext p { color:var(--muted); line-height:1.8; }
+.capabilities { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:30px 0; }
+.capabilities article { border-top:1px solid var(--line); padding-top:20px; }
+.capabilities h3 { font-size:18px; font-weight:500; }
+.source { display:inline-flex; align-items:center; gap:8px; min-height:44px; color:var(--accent); }
+.productContext small { display:block; margin-top:12px; color:var(--muted); line-height:1.6; }
+@media(max-width:760px) { .capabilities { grid-template-columns:1fr; gap:12px; } .productContext { padding-top:45px; } }

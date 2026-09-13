@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) notFound();
   const title = `${project.name} — Priyansh Dobariya`;
   const url = `${siteUrl}/projects/${project.id}/`;
-  const image = projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : null;
+  const image = project.id === 'zyberon' ? `${siteUrl}/projects/zyberon-ad-01-800.webp` : projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : null;
   return {
     title, description: project.description, alternates: { canonical: url },
     openGraph: { type: 'website', title, description: project.description, url, siteName: profile.name,
-      images: image ? [{ url: image, width: 1280, height: 800, alt: projectArtwork[project.id].alt }] : [] },
+      images: image ? [{ url: image, width: project.id === 'zyberon' ? 800 : 1280, height: project.id === 'zyberon' ? 1000 : 800, alt: projectArtwork[project.id]?.alt ?? 'Sample ad creative from Zyberon AI' }] : [] },
     twitter: { card: image ? 'summary_large_image' : 'summary', title, description: project.description, images: image ? [image] : [] },
   };
 }
@@ -60,9 +60,20 @@ export default async function ProjectPage({ params }: Props) {
         <p className={styles.description}>{project.description}</p>
       </header>
       <div className={styles.cover}><ProjectVisual id={project.id} priority sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), (max-width: 1416px) calc(100vw - 112px), 1304px"/></div>
+      {project.id === 'zyberon' && <section className={styles.productContext} aria-labelledby="product-title">
+        <div className="eyebrow">THE PRODUCT</div><h2 id="product-title">One workspace. A connected AI workforce.</h2>
+        <p>Zyberon brings Shopify workflows together across marketing, customer service, and business operations.</p>
+        <div className={styles.capabilities}>
+          <article><h3>Creative & campaigns</h3><p>Generate image and video ads, build Meta campaigns from product links, and plan social content.</p></article>
+          <article><h3>Store experiences</h3><p>Create pages, quiz funnels, and lifecycle emails, with customer support informed by Shopify order context.</p></article>
+          <article><h3>Business intelligence</h3><p>Research products, track profit, and coordinate tasks across the store’s AI tools.</p></article>
+        </div>
+        <a href="https://zyberon.ai/" target="_blank" rel="noopener noreferrer" className={styles.source}>Explore Zyberon <ArrowUpRight size={16}/></a>
+        <small>Product overview and sample imagery sourced from Zyberon’s official website.</small>
+      </section>}
       <ScrollPattern variant="signal" anchor=".project-overview" className="project-signal"/>
       <section className={`${styles.overview} project-overview`} aria-labelledby="overview-title">
-        <div><div className="eyebrow">PROJECT OVERVIEW</div><h2 id="overview-title">Behind the <span className="serif">build.</span></h2></div>
+        <div><div className="eyebrow">{project.id === 'zyberon' ? 'MY CONTRIBUTIONS' : 'PROJECT OVERVIEW'}</div><h2 id="overview-title">Behind the <span className="serif">build.</span></h2></div>
         <div className={styles.content}><ul className={styles.details}>{project.details.map((detail, i) => <li key={detail} data-reveal="slide"><span aria-hidden="true">0{i + 1}</span><p>{detail}</p></li>)}</ul>
           <h3 className={styles.stackTitle}>Tools & technologies</h3><ul className={`tech-tags ${styles.tags}`}>{project.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul>
         </div>

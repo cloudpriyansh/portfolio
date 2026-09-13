@@ -90,5 +90,5 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <div ref={container} className={styles.stack}>{children}</div>;
+  return <div ref={container} className={styles.stack} data-project-stack>{children}</div>;
 }

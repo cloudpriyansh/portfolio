@@ -87,8 +87,10 @@ Each `lib/content.ts` project ID is its stable slug: `/projects/growstack/`, `/p
 
 Implementation: `components/project-showcase.tsx`, `components/project-scroll.tsx`, and `app/projects/[slug]/page.tsx`. Next.js references: [static route generation](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) and [route metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata).
 
-## Scroll-drawn patterns
+## Continuous scroll path
 
-`components/scroll-pattern.tsx` provides decorative SVG orbits, woven curves, a toolkit signal, the experience progress line, and a contact arc. `components/effects.tsx` updates only visible sections in one animation frame per scroll event; there is no continuously running SVG animation loop. All SVGs are hidden from assistive technology and ignore pointer events. Heading wipes, toolkit card reveals, and timeline/detail reveals share the existing IntersectionObserver.
+`components/site-thread.tsx` draws one continuous SVG path from the hero to the footer, with a moving tip that follows the reading position in either scroll direction. Desktop curves connect the sections through their open space; the mobile route stays in the gutters. A viewport-sized SVG projects document coordinates without creating a page-height layer. Geometry is sampled only when layout changes, and passive scroll events schedule one animation frame using cached points. All decoration is hidden from assistive technology and ignores pointer events.
+
+Heading wipes, toolkit card reveals, and timeline/detail reveals share the existing IntersectionObserver in `components/effects.tsx`. Project detail pages retain their small signal pattern from `components/scroll-pattern.tsx`.
 
 The header pause control and system reduced-motion preference show all content and complete, stationary paths. Direct section links are realigned after sticky-card spacing is applied. Desktop/mobile layouts, line progress during scrolling, motion pause, reverse keyboard card navigation, and project detail artwork have been checked locally.

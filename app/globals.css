@@ -90,3 +90,32 @@
   .scroll-pattern { --path-offset: 0!important; --pattern-turn: 0deg!important; --pattern-drift: 0px!important; --pattern-scale: 1!important; }
   .will-reveal[data-reveal] { opacity: 1; transform: none; clip-path: none; transition: none; }
 }
+
+/* One continuous, scroll-drawn path across the homepage. */
+.portfolio-flow { position: relative; isolation: isolate; }
+.site-thread { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; contain: strict; opacity: 0; --thread-color: #aa7843; }
+.site-thread[data-ready=true] { opacity: 1; }
+.site-thread-path { stroke: var(--thread-color); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .7; }
+.site-thread-tip { fill: var(--thread-color); stroke: var(--bg); stroke-width: 3; }
+[data-theme=dark] .site-thread { --thread-color: #d5b778; }
+.portfolio-flow .site-header { position: relative; z-index: 5; }
+.portfolio-flow .hero-copy, .portfolio-flow .hero-stage, .portfolio-flow .hero-bottom,
+.portfolio-flow .section-heading, .portfolio-flow .about-grid, .portfolio-flow .skills-grid,
+.portfolio-flow .work-note, .portfolio-flow .site-footer { position: relative; z-index: 2; }
+.portfolio-flow [data-project-stack], .portfolio-flow .experience-intro, .portfolio-flow .timeline { z-index: 2; }
+.portfolio-flow .contact-section { isolation: auto; }
+.portfolio-flow .contact-section > .container { z-index: 2; }
+.portfolio-flow .about-label > span { display: block; margin-top: 24px; }
+@media (max-width: 760px) {
+  .site-thread-path { stroke-width: 1.5; opacity: .65; }
+  .site-thread-tip { r: 3.5px; stroke-width: 2; }
+  .portfolio-flow .about-label { padding-right: 0; min-height: 0; }
+  .portfolio-flow .about-label > span { display: none; }
+}
+[data-motion=paused] .site-thread-path { stroke-dashoffset: 0!important; }
+[data-motion=paused] .site-thread-tip { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .site-thread-path { stroke-dashoffset: 0!important; }
+  .site-thread-tip { display: none; }
+}
+@media print { .site-thread { display: none; } }

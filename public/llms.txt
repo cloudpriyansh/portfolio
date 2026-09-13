@@ -1,0 +1,22 @@
+# Priyansh Dobariya
+
+> Applied AI Engineer building production LLM systems, RAG architectures, AI agents, and business automation.
+
+## Profile
+- Name: Priyansh Dobariya
+- Role: Software Engineer – Applied AI at Bitontree (December 2024 – present)
+- Education: B.Tech in Information Technology, Dharmsinh Desai University, 2021–2025; CPI 8.04/10
+- Contact: priyansh20032003@gmail.com
+- LinkedIn: https://www.linkedin.com/in/priyansh203
+
+## Selected work
+- [Growstack AI](/#growstack): Natural-language-to-SQL, query validation, and structured data exports over ClickHouse datasets containing 330M+ records. LangGraph, AWS Bedrock, ClickHouse, S3.
+- [uRecruits](/#urecruits): Resume parsing, candidate matching, AI scoring, monitoring, audit trails, and human review workflows.
+- [Zyberon AI](/#zyberon): Ecommerce automation connecting Shopify, n8n, generative AI, and Meta APIs.
+- [AI Voice Agent](/#voice-agent): Lead qualification, appointment scheduling, context handling, and follow-ups using Retell AI, FastAPI, and MongoDB.
+
+## Source
+- [Portfolio](/): Profile, selected work, toolkit, and experience.
+- [Resume](/Priyansh_Resume.pdf): Professional resume provided by Priyansh.
+
+This file is a concise summary of the visible portfolio, not a ranking or indexing mechanism.

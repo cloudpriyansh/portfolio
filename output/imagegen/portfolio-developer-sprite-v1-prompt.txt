@@ -1,0 +1,18 @@
+Generated with built-in image_gen.
+Final asset: portfolio-developer-sprite-v1.png
+Actual dimensions: 2172 × 724 PNG RGBA.
+Cells: 4 horizontal, each 543 × 724 (3:4).
+QA: visually inspected on #f8f8f2 and #121d25; no visible colored fringes. Original raw-alpha tool preview has display artifacts, absent when correctly composited.
+
+Full generation prompt:
+
+Use case: stylized-concept
+Asset type: production four-frame horizontal sprite sheet for a premium applied-AI-engineer portfolio website, intended for CSS stepped animation.
+Primary request: Create one PNG sprite sheet with precisely FOUR equal square cells in one horizontal row, requested canvas 4096 x 1024 pixels (or largest supported exact 4:1 canvas). Each cell contains the SAME original fictional young adult Indian male developer mascot, seated working at an open silver laptop on a minimal small rounded cream desk. No cell outlines or gaps; each cell background is transparent alpha.
+Subject: Friendly focused young adult Indian male character with warm brown skin, dark gently wavy hair, round dark glasses, forest-green sweatshirt, charcoal trousers and simple ivory sneakers. High-quality sculpted 3D clay style, smooth rounded forms with subtle tactile material. Small chair visible. Laptop has a clean plain silver back without any logo.
+Composition/framing: Locked three-quarter front camera, character face visible above laptop, entire desk, chair, seated character and feet fully contained with comfortable clear margin in each square cell. Identical fixed camera, fixed scale and fixed desk/laptop/chair/feet positions across all four frames. Center subject at exactly the same relative position in each cell. Character head and desk centered. Hands convincingly contact keyboard. This is one animation sequence, not four separate designs.
+Animation: Frame 1 calm typing, left fingertips slightly raised. Frame 2 both hands type, tiny head tilt down. Frame 3 right fingertips slightly raised, eyes slightly narrowed in focus. Frame 4 relaxed return to initial pose, subtle small smile. Only hands, forearms and very slight head/eyelid changes; all other objects and the body remain aligned identically.
+Lighting/mood: Premium soft studio rendering, gentle broad highlights, subtle ambient occlusion, friendly quiet focused feel. Lighting designed for a light ivory website.
+Scene/backdrop: Genuine transparent alpha background. Only a faint soft contact shadow directly beneath feet and desk if possible. No floor plane, no solid background, no checkerboard pattern baked into image.
+Constraints: Exactly four complete characters, one in each square cell, consistent identity/clothes/objects/camera. No extra person, no repeated object inside a frame. No text, lettering, UI, logos, frame labels, watermark, panel borders or decorative background. Never crop any part of figure or desk.
+

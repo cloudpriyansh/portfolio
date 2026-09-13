@@ -1,0 +1,22 @@
+{
+  "name": "priyansh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0 --webpack",
+    "build": "next build --webpack",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.2.4",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "lucide-react": "0.522.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+}

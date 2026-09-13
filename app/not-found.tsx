@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main className="container" style={{paddingBlock:'18vh'}}><p className="eyebrow">404 / A LITTLE OFF THE PATH</p><h1>Let’s head<br/><span className="serif">back home.</span></h1><p className="section-lede">The page you’re looking for isn’t here.</p><Link href="/" className="button button-primary">Back to the portfolio</Link></main>;}

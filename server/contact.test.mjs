@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {handleContact} from './contact.mjs';
+const env={SENDGRID_API_KEY:'test-only',SENDGRID_FROM_EMAIL:'sender@example.com',CONTACT_TO_EMAIL:'owner@example.com'};
+const data={name:'Test Person',email:'visitor@example.com',message:'I would like to discuss a new portfolio project.',projectType:'Full-stack development'};
+function request(body=data,origin='https://portfolio.example'){return new Request('https://portfolio.example/api/contact',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(body)});}
+test('rejects invalid input and foreign origin before sending',async()=>{const noSend=()=>assert.fail('must not send');assert.equal((await handleContact(request({...data,email:'bad'}),env,noSend)).status,400);assert.equal((await handleContact(request(data,'https://other.example'),env,noSend)).status,403);assert.equal((await handleContact(request({...data,website:'spam'}),env,noSend)).status,400);});
+test('missing credentials returns honest unavailable state',async()=>{assert.equal((await handleContact(request(),{},()=>assert.fail('must not send'))).status,503);});
+test('uses fixed recipient and verified sender with visitor as reply-to',async()=>{let payload;const response=await handleContact(request({...data,to:'attacker@example.com'}),env,async(url,options)=>{assert.equal(url,'https://api.sendgrid.com/v3/mail/send');payload=JSON.parse(options.body);return new Response(null,{status:202});});assert.equal(response.status,200);assert.equal(payload.personalizations[0].to[0].email,'owner@example.com');assert.equal(payload.from.email,'sender@example.com');assert.equal(payload.reply_to.email,'visitor@example.com');});
+test('provider failure does not report success or expose provider response',async()=>{const response=await handleContact(request(),env,async()=>new Response('secret provider detail',{status:403}));assert.equal(response.status,502);assert.ok(!(await response.text()).includes('secret'));});

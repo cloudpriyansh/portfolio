@@ -7,3 +7,5 @@ out/
 *.tsbuildinfo
 .DS_Store
 tmp/
+
+dist/

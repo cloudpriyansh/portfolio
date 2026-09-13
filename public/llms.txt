@@ -13,7 +13,7 @@
 - Frontend: React, Next.js, TypeScript, JavaScript, HTML and CSS, responsive UI.
 - Backend: Node.js, NestJS microservices, Python, FastAPI, REST APIs, GraphQL, Stripe payment integrations, n8n workflows.
 - Data and infrastructure: Redis, PostgreSQL, MongoDB, ClickHouse, vector databases, Pinecone, AWS deployment, Docker.
-- Applied AI: LangGraph, LangChain, CrewAI, RAG pipelines, embeddings, agents, and LLM evaluation.
+- Applied AI: LangGraph, LangChain, CrewAI, RAG pipelines, embeddings, AI agents, multi-agent architecture, LLM observability, and LLM evaluation.
 
 ## Selected work
 - [Growstack AI](/projects/growstack/): Natural-language-to-SQL, query validation, and structured data exports over ClickHouse datasets containing 330M+ records. LangGraph, AWS Bedrock, ClickHouse, S3.

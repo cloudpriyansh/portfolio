@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { BrandMark } from './brand-mark';
 import { usePathname } from 'next/navigation';
 import { ArrowUpRight, Moon, Sun, Menu, X, Pause, Play } from 'lucide-react';
 export function Header() {
@@ -49,7 +50,7 @@ export function Header() {
   }
   function toggleMotion(){const next=!paused;setPaused(next);document.documentElement.dataset.motion=next?'paused':'running';try{localStorage.setItem('portfolio-motion',next?'paused':'running');}catch{}}
   return <><div id="top" className="top-anchor" aria-hidden="true"/><header ref={header} className="site-header" onBlur={e=>{if(menu&&e.relatedTarget&&!e.currentTarget.contains(e.relatedTarget as Node))setMenu(false);}}>
-    <a className="nav-brand" href={`${home}#top`} aria-label="Priyansh home"><span className="brand">pd<span aria-hidden="true">✳</span></span><span className="nav-brand-copy">Priyansh<span>Full-stack &amp; AI</span></span></a>
+    <a className="nav-brand" href={`${home}#top`} aria-label="Priyansh home"><BrandMark/><span className="nav-brand-copy">Priyansh<span>Full-stack &amp; AI</span></span></a>
     <nav id="main-navigation" className={menu?'is-open':''} aria-label="Main navigation">{links.map(link=><a key={link.id} href={`${home}#${link.id}`} aria-current={active===link.id?'location':undefined} onClick={()=>setMenu(false)}><span className="nav-indicator"/>{link.label}</a>)}<a className="mobile-nav-contact" href={`${home}#contact`} onClick={()=>setMenu(false)}>Let’s talk <ArrowUpRight size={17}/></a></nav>
     <div className="header-tools"><div className="nav-preferences"><button className="icon-button motion-toggle" onClick={toggleMotion} aria-label={paused?'Resume animations':'Pause animations'} aria-pressed={paused} title={paused?'Resume animations':'Pause animations'}>{paused?<Play size={15}/>:<Pause size={15}/>}</button><button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme==='light'?'night':'day'} mode`} title={`Switch to ${theme==='light'?'night':'day'} mode`}><span className="theme-track"><Sun className="theme-sun" size={14}/><Moon className="theme-moon" size={13}/><span className="theme-knob"/></span></button></div><a className="nav-contact" href={`${home}#contact`}>Let’s talk <ArrowUpRight size={16}/></a><button ref={menuButton} className="icon-button menu-toggle" aria-expanded={menu} aria-controls="main-navigation" aria-label={menu?'Close menu':'Open menu'} onClick={()=>setMenu(!menu)}>{menu?<X size={21}/>:<Menu size={21}/>}</button></div>
   </header></>;

@@ -16,3 +16,6 @@
 @media(max-width:900px) { .aboutGrid,.stack { grid-template-columns:1fr 1.5fr; gap:35px; }.identity { padding:22px; }.layerTools { flex-direction:column; gap:16px; } }
 @media(max-width:650px) { .about { padding:50px 0; }.sectionLabel > span:last-child { display:none; }.aboutGrid,.stack { grid-template-columns:1fr; gap:32px; }.aboutGrid { padding:32px 0; }.identity { display:grid; grid-template-columns:80px 1fr; gap:18px; align-items:center; }.nameMark { font-size:65px; border:0; padding:0; margin:0; }.nameMark > span { font-size:26px; margin-left:3px; }.identity h3 { font-size:20px; }.identity dl { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:20px; margin:0; }.identity dl > div { margin:0; }.identity a { grid-column:1/-1; }.aboutCopy h2 { font-size:42px; }.principles { grid-template-columns:1fr; gap:24px; }.stackIntro { position:static; }.stackIntro h2 { font-size:54px; }.stackIntro h2 br:nth-child(2) { display:none; }.stackIntro h2 span:before { content:' '; }.stackIntro p { max-width:100%; }.stackIntro a { display:none; }.layer { padding:25px 0 30px; } }
 @media(prefers-reduced-motion:reduce) { .stackIntro { position:static; } }
+
+.nameMark :global(.brand-symbol) { width:100px; height:100px; }
+@media(max-width:650px) { .nameMark :global(.brand-symbol) { width:62px; height:62px; } }

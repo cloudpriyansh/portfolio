@@ -100,3 +100,9 @@ The full-stack profile is reflected in the introduction, About copy, toolkit, me
 The floating sticky navbar highlights the current homepage section and includes direct Work, About, Stack, and contact navigation. Its mobile menu supports Escape, outside clicks, focus return, and dismissal on navigation.
 
 Both the specialty ticker and technology logo strip loop continuously using CSS transforms on two identical groups. Six CSS 3D technology tiles float around the existing laptop character. Visibility observers pause ambient movement off-screen; hidden tabs, the global pause control, and reduced-motion preferences also suspend it. Technology SVGs are served locally from `public/tech`, with provenance in `SOURCES.txt`; there is no external icon service or 3D runtime dependency.
+
+
+## Contact email
+The public pages remain Next.js static exports. `npm run build` adds a small Worker endpoint at `/api/contact` and stages public files in `dist/client`. `npm run dev` runs Next.js with a local contact API on 127.0.0.1:3001.
+
+Set `SENDGRID_API_KEY`, `SENDGRID_FROM_EMAIL` (a verified SendGrid sender), and `CONTACT_TO_EMAIL` in the ignored `.env`. Set the same production secrets through Sites runtime environment settings; `.env` is never bundled. Without credentials the form returns an honest unavailable message and offers direct email. The form uses a fixed recipient, server validation, same-origin checks, a honeypot, and best-effort per-isolate rate limiting. No email delivery has been verified until credentials are configured. Run `node --test server/contact.test.mjs` for mocked delivery and validation tests.

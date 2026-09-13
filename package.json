@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0 --webpack",
-    "build": "next build --webpack",
+    "dev": "node scripts/dev.mjs",
+    "build": "next build --webpack && node scripts/package-worker.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

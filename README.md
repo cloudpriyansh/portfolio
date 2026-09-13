@@ -23,7 +23,7 @@ Deploy the `out/` directory to a static host. On Vercel, select Next.js and use 
 
 - `lib/content.ts`: profile, project descriptions, technologies, expanded details, and skill groups. Add future projects to the `projects` array.
 - `app/page.tsx`: about text and experience timeline.
-- `components/project-visual.tsx`: project architecture visuals; these are conceptual diagrams, not actual product screenshots or measured charts.
+- `components/project-visual.tsx`: project covers and conceptual architecture visuals. The generated Growstack cover is original artwork rather than a product screenshot.
 - `public/Priyansh_Resume.pdf`: original resume download.
 - `public/llms.txt`: factual plain-text summary; update it with future content edits.
 - `public/developer-sprites.webp`: optimized original character sprite (4 frames, 2172 × 724, ~334 KB). Generated with built-in imagegen. Source and prompt in `output/imagegen/`.
@@ -74,3 +74,9 @@ References: [Next.js static exports](https://nextjs.org/docs/app/guides/static-e
 - Current private review build correctly emits noindex and disallows crawling. Indexing remains a public-launch step.
 - Approximate build output: 17.7 KB gzipped homepage HTML, 172 KB gzipped initial JavaScript including the Next.js runtime, and a 334 KB character WebP. These are asset measurements, not a live Lighthouse or Core Web Vitals score.
 - Social card: `public/og.png`; generation prompt: `output/imagegen/social-card-prompt.txt`. Both image assets were generated using the built-in imagegen tool.
+
+## Generated project artwork
+
+Growstack has a cinematic emerald glass data sculpture generated with built-in imagegen. Original: `output/imagegen/projects/growstack-original.png`. Exact prompt: `output/imagegen/projects/manifest.json`. Responsive AVIF and WebP exports at 480, 800, and 1280 pixels are in `public/projects/`; images load lazily, reserve their layout space, and respect motion preferences. Rebuild these exports with `node scripts/optimize-project-images.mjs`.
+
+The other three cover requests stalled and were cancelled without completed images. Their existing diagrams remain in place. Their prompts are retained in `output/imagegen/projects/requests.json` for a future generation request.

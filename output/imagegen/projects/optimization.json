@@ -1,0 +1,20 @@
+[
+  {
+    "project": "growstack",
+    "width": 480,
+    "avifBytes": 32057,
+    "webpBytes": 36444
+  },
+  {
+    "project": "growstack",
+    "width": 800,
+    "avifBytes": 69461,
+    "webpBytes": 83500
+  },
+  {
+    "project": "growstack",
+    "width": 1280,
+    "avifBytes": 127856,
+    "webpBytes": 166964
+  }
+]

@@ -4,6 +4,7 @@ import { Effects } from '@/components/effects';
 import { ProjectVisual } from '@/components/project-visual';
 import { profile, projects, skillGroups } from '@/lib/content';
 import { siteUrl } from '@/lib/site';
+import { projectArtwork } from '@/lib/project-art';
 
 const statement = 'I like making complex things feel simple. Especially when there’s a little intelligence behind them.';
 
@@ -11,7 +12,7 @@ export default function Home() {
   const schema = {'@context':'https://schema.org','@graph':[
     {'@type':'Person','@id':`${siteUrl || ''}/#priyansh`,name:profile.name,jobTitle:profile.role,description:profile.description,email:`mailto:${profile.email}`,url:siteUrl||undefined,sameAs:[profile.linkedin],worksFor:{'@type':'Organization',name:'Bitontree'},alumniOf:{'@type':'CollegeOrUniversity',name:'Dharmsinh Desai University'},knowsAbout:['Applied AI','LLM systems','RAG','AI automation','Python','TypeScript','LangGraph','FastAPI']},
     {'@type':'ProfilePage','@id':`${siteUrl||''}/#profile`,url:siteUrl||undefined,name:`${profile.name} — ${profile.role}`,mainEntity:{'@id':`${siteUrl||''}/#priyansh`}},
-    ...projects.map(project=>({'@type':'CreativeWork',name:project.name,description:project.description,about:project.category,contributor:{'@id':`${siteUrl||''}/#priyansh`},url:siteUrl?`${siteUrl}/#${project.id}`:undefined}))
+    ...projects.map(project=>({'@type':'CreativeWork',name:project.name,description:project.description,about:project.category,image:siteUrl&&projectArtwork[project.id]?`${siteUrl}/projects/${project.id}-1280.webp`:undefined,contributor:{'@id':`${siteUrl||''}/#priyansh`},url:siteUrl?`${siteUrl}/#${project.id}`:undefined}))
   ]};
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>

@@ -10,10 +10,10 @@
 - LinkedIn: https://www.linkedin.com/in/priyansh203
 
 ## Selected work
-- [Growstack AI](/#growstack): Natural-language-to-SQL, query validation, and structured data exports over ClickHouse datasets containing 330M+ records. LangGraph, AWS Bedrock, ClickHouse, S3.
-- [uRecruits](/#urecruits): Resume parsing, candidate matching, AI scoring, monitoring, audit trails, and human review workflows.
-- [Zyberon AI](/#zyberon): Ecommerce automation connecting Shopify, n8n, generative AI, and Meta APIs.
-- [AI Voice Agent](/#voice-agent): Lead qualification, appointment scheduling, context handling, and follow-ups using Retell AI, FastAPI, and MongoDB.
+- [Growstack AI](/projects/growstack/): Natural-language-to-SQL, query validation, and structured data exports over ClickHouse datasets containing 330M+ records. LangGraph, AWS Bedrock, ClickHouse, S3.
+- [uRecruits](/projects/urecruits/): Resume parsing, candidate matching, AI scoring, monitoring, audit trails, and human review workflows.
+- [Zyberon AI](/projects/zyberon/): Ecommerce automation connecting Shopify, n8n, generative AI, and Meta APIs.
+- [AI Voice Agent](/projects/voice-agent/): Lead qualification, appointment scheduling, context handling, and follow-ups using Retell AI, FastAPI, and MongoDB.
 
 ## Source
 - [Portfolio](/): Profile, selected work, toolkit, and experience.

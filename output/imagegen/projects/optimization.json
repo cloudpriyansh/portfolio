@@ -16,5 +16,23 @@
     "width": 1280,
     "avifBytes": 127856,
     "webpBytes": 166964
+  },
+  {
+    "project": "urecruits",
+    "width": 480,
+    "avifBytes": 12488,
+    "webpBytes": 17376
+  },
+  {
+    "project": "urecruits",
+    "width": 800,
+    "avifBytes": 22058,
+    "webpBytes": 35318
+  },
+  {
+    "project": "urecruits",
+    "width": 1280,
+    "avifBytes": 37213,
+    "webpBytes": 67086
   }
 ]

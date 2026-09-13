@@ -41,3 +41,52 @@
 @media(max-width:760px){.character-space{transform:none!important}.hero-stage{padding-bottom:10px}.scene-caption{bottom:31px}.scene-coordinate{bottom:4px}}
 [data-motion=paused] h1,[data-motion=paused] .hero-intro,[data-motion=paused] .hero-actions{animation:none!important;opacity:1;transform:none}
 @media(max-width:760px){.code-card code{display:none}.code-card{top:25px;padding:11px 10px}.code-card>span{font-size:9px}.code-card>span svg{width:14px;height:14px}}
+
+/* Scroll-drawn geometry shares the same viewport-aware animation frame. */
+.scroll-pattern { display: block; pointer-events: none; color: var(--accent); overflow: visible; }
+.pattern-guide, .pattern-trace { stroke: currentColor; stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.pattern-guide { opacity: .14; }
+.pattern-trace { stroke-dasharray: 1; stroke-dashoffset: var(--path-offset, 0); opacity: .65; }
+.pattern-orbit-points, .pattern-nodes { fill: currentColor; }
+.pattern-orbit-points { transform: rotate(var(--pattern-turn, 0deg)); transform-origin: 250px 250px; }
+.hero-orbits { position: absolute; width: 100%; max-width: 530px; aspect-ratio: 1; left: 50%; top: 44%; transform: translate(-50%, -50%); opacity: .75; }
+.hero-orbits .pattern-lines { transform: rotate(calc(var(--pattern-turn, 0deg) * -.4)); transform-origin: 250px 250px; }
+.hero-orbits .pattern-trace { stroke-width: 1; opacity: .45; }
+.about-weave { width: min(310px, 100%); height: auto; margin: 36px -15px 24px; transform: rotate(calc(var(--pattern-turn, 0deg) * .25)) scale(var(--pattern-scale, 1)); }
+.about-weave .pattern-trace { opacity: .8; stroke-width: 1.4; }
+.about-weave .pattern-guide { opacity: .1; }
+.toolkit-signal { width: 100%; height: 65px; margin: -8px 0 27px; }
+.toolkit-signal .pattern-trace, .project-signal .pattern-trace { stroke-width: 2; }
+.pattern-nodes { opacity: .8; }
+.timeline { position: relative; }
+.timeline-thread { position: absolute; left: -4px; top: 0; width: 8px; height: 100%; }
+.timeline-thread .pattern-guide { opacity: 0; }
+.timeline-thread .pattern-trace { stroke-width: 2; opacity: .8; }
+.timeline-icon { z-index: 1; }
+.contact-section { position: relative; isolation: isolate; overflow: clip; }
+.contact-section > .container { position: relative; z-index: 1; }
+.contact-arc { position: absolute; width: min(650px, 60vw); right: -55px; top: -10px; color: #b7d496; opacity: .23; transform: translateY(var(--pattern-drift, 0px)) rotate(calc(var(--pattern-turn, 0deg) * -.2)); }
+.contact-arc .pattern-trace { stroke-width: 2; }
+.project-signal { width: 100%; height: 65px; margin: 40px 0 -45px; }
+.will-reveal[data-reveal=wipe] { opacity: 0; transform: translateY(20px); clip-path: inset(0 0 25% 0); transition: clip-path .9s cubic-bezier(.2,.7,.2,1), opacity .7s, transform .9s cubic-bezier(.2,.7,.2,1); }
+.will-reveal[data-reveal=tilt] { transform: perspective(1000px) translateY(55px) rotateX(6deg); transform-origin: center bottom; }
+.will-reveal[data-reveal=slide] { transform: translateX(30px); }
+.will-reveal.revealed[data-reveal] { opacity: 1; transform: none; clip-path: none; }
+.will-reveal.revealed[data-reveal=wipe] { clip-path: inset(0); }
+@media (max-width: 760px) {
+  .hero-orbits { width: 105%; top: 42%; }
+  .about-label { position: relative; min-height: 115px; padding-right: 130px; }
+  .about-label .eyebrow { font-size: 11px; letter-spacing: .8px; }
+  .about-weave { position: absolute; right: -4px; top: 0; width: 130px; margin: 0; }
+  .toolkit-signal { height: 38px; margin: -5px 0 22px; }
+  .contact-arc { width: 380px; right: -145px; top: 15px; opacity: .18; }
+  .project-signal { height: 38px; margin: 28px 0 -20px; }
+  .will-reveal[data-reveal=slide] { transform: translateY(25px); }
+  .will-reveal.revealed[data-reveal] { transform: none; }
+}
+[data-motion=paused] .scroll-pattern { --path-offset: 0!important; --pattern-turn: 0deg!important; --pattern-drift: 0px!important; --pattern-scale: 1!important; }
+[data-motion=paused] .will-reveal[data-reveal] { opacity: 1; transform: none; clip-path: none; transition: none; }
+@media (prefers-reduced-motion: reduce), print {
+  .scroll-pattern { --path-offset: 0!important; --pattern-turn: 0deg!important; --pattern-drift: 0px!important; --pattern-scale: 1!important; }
+  .will-reveal[data-reveal] { opacity: 1; transform: none; clip-path: none; transition: none; }
+}

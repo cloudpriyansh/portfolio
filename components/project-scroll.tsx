@@ -53,10 +53,14 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
     };
     const onHash = () => {
       const index = steps.findIndex(step => `#${step.id}` === window.location.hash);
-      if (index < 0) return;
+      const anchor = document.getElementById(window.location.hash.slice(1));
+      if (!anchor) return;
       cancelAnimationFrame(anchorFrame);
       // Account for sticky spacing added after hydration, including return links.
-      anchorFrame = requestAnimationFrame(() => scrollToStep(index));
+      anchorFrame = requestAnimationFrame(() => {
+        if (index >= 0) scrollToStep(index);
+        else anchor.scrollIntoView({ block: 'start', behavior: 'instant' });
+      });
     };
     const visibility = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;

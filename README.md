@@ -23,7 +23,7 @@ Deploy the `out/` directory to a static host. On Vercel, select Next.js and use 
 
 - `lib/content.ts`: profile, project descriptions, technologies, expanded details, and skill groups. Add future projects to the `projects` array.
 - `app/page.tsx`: about text and experience timeline.
-- `components/project-visual.tsx`: project covers and conceptual architecture visuals. The generated Growstack cover is original artwork rather than a product screenshot.
+- `components/project-visual.tsx`: project covers and conceptual architecture visuals. Generated covers are conceptual artwork rather than product screenshots.
 - `public/Priyansh_Resume.pdf`: original resume download.
 - `public/llms.txt`: factual plain-text summary; update it with future content edits.
 - `public/developer-sprites.webp`: optimized original character sprite (4 frames, 2172 × 724, ~334 KB). Generated with built-in imagegen. Source and prompt in `output/imagegen/`.
@@ -63,23 +63,21 @@ References: [Next.js static exports](https://nextjs.org/docs/app/guides/static-e
 
 ## Validation
 
-`npm run typecheck` checks TypeScript. `npm run build` verifies Next.js production generation. Inspect both desktop and mobile sizes, day/night switching, keyboard menu behavior, project disclosures, email/LinkedIn links, and resume download after content changes.
+`npm run typecheck` checks TypeScript. `npm run build` verifies Next.js production generation. Inspect both desktop and mobile sizes, day/night switching, keyboard menu behavior, project links, email/LinkedIn links, and resume download after content changes.
 
 ## Current validation results
 
 - Production static export and TypeScript pass.
 - Browser checked at 1440 px desktop and 390/320 px mobile, in both themes; no page overflow in the mobile checks.
-- Mobile menu moves focus to its first item; Escape closes it and returns focus. Project disclosures expand. Theme and animation pause survive reload.
+- Mobile menu moves focus to its first item; Escape closes it and returns focus. Project cards open dedicated pages; their return links and keyboard navigation are verified. Theme and animation pause survive reload.
 - Export contains one H1, all four projects, valid JSON-LD, matching canonical/social URLs, local assets, and the downloadable resume.
 - Current private review build correctly emits noindex and disallows crawling. Indexing remains a public-launch step.
-- Approximate build output: 17.7 KB gzipped homepage HTML, 172 KB gzipped initial JavaScript including the Next.js runtime, and a 334 KB character WebP. These are asset measurements, not a live Lighthouse or Core Web Vitals score.
+- The character uses a 334 KB WebP. Responsive project image byte sizes are recorded in `output/imagegen/projects/optimization.json`. These are asset measurements, not live Core Web Vitals scores.
 - Social card: `public/og.png`; generation prompt: `output/imagegen/social-card-prompt.txt`. Both image assets were generated using the built-in imagegen tool.
 
 ## Generated project artwork
 
-Growstack has a cinematic emerald glass data sculpture generated with built-in imagegen. Original: `output/imagegen/projects/growstack-original.png`. Exact prompt: `output/imagegen/projects/manifest.json`. Responsive AVIF and WebP exports at 480, 800, and 1280 pixels are in `public/projects/`; images load lazily, reserve their layout space, and respect motion preferences. Rebuild these exports with `node scripts/optimize-project-images.mjs`.
-
-The other three cover requests stalled and were cancelled without completed images. Their existing diagrams remain in place. Their prompts are retained in `output/imagegen/projects/requests.json` for a future generation request.
+Project covers are generated with built-in ImageGen. Full-resolution originals and the exact prompt set are in `output/imagegen/projects/`; `manifest.json` records each completed asset. Responsive AVIF and WebP exports at 480, 800, and 1280 pixels are in `public/projects/`. Homepage images load lazily; detail-page cover images use high priority. Dimensions are reserved to prevent layout shifts. Rebuild exports with `node scripts/optimize-project-images.mjs`.
 
 ## Project pages and scroll sequence
 
@@ -88,3 +86,9 @@ The homepage presents one full project card at a time. Native CSS sticky positio
 Each `lib/content.ts` project ID is its stable slug: `/projects/growstack/`, `/projects/urecruits/`, `/projects/zyberon/`, and `/projects/voice-agent/`. The static detail pages reuse the existing summaries and verified technical points, with room for fuller case-study content later. Add or edit projects in the same data file. Each route has its own title, description, canonical, Open Graph/X fields, and structured data. Public-launch sitemap generation includes all project routes. Private indexing settings remain unchanged.
 
 Implementation: `components/project-showcase.tsx`, `components/project-scroll.tsx`, and `app/projects/[slug]/page.tsx`. Next.js references: [static route generation](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) and [route metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata).
+
+## Scroll-drawn patterns
+
+`components/scroll-pattern.tsx` provides decorative SVG orbits, woven curves, a toolkit signal, the experience progress line, and a contact arc. `components/effects.tsx` updates only visible sections in one animation frame per scroll event; there is no continuously running SVG animation loop. All SVGs are hidden from assistive technology and ignore pointer events. Heading wipes, toolkit card reveals, and timeline/detail reveals share the existing IntersectionObserver.
+
+The header pause control and system reduced-motion preference show all content and complete, stationary paths. Direct section links are realigned after sticky-card spacing is applied. Desktop/mobile layouts, line progress during scrolling, motion pause, reverse keyboard card navigation, and project detail artwork have been checked locally.

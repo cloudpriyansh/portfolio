@@ -7,9 +7,10 @@
   },
   {
     "id": "urecruits",
-    "source_path": null,
+    "source_path": "output/imagegen/projects/urecruits-original.png",
     "prompt": "Use case: stylized-concept\nAsset type: conceptual portfolio project cover artwork.\nCreate a premium cinematic 3D editorial still life, landscape 1536\u00d71024 or similar exact 3:2 proportion. Sophisticated studio lighting, polished tactile metal and translucent colored glass, a richly detailed but uncluttered designed sculpture. Full bleed with no frame. Keep every important form within the central 75% of the canvas so both 16:10 and 2:1 crops work. High-end coherent material treatment and meticulous physically plausible light/refractions, art-directed impossible sculpture.\nConstraints: No words, numbers, labels, UI screenshots, logos, watermarks, literal code, or photos of people. This is a conceptual artwork, not a depiction of an actual product interface. No typography or symbols resembling lettering.\nSubject: AI-assisted recruitment with human review, expressed as a constellation of broad translucent violet glass candidate profile tiles orbiting a central sculptural frosted-glass human bust/silhouette and a silver connection ring.\nDesign details: Each broad profile tile has only a very simple abstract raised human silhouette icon \u2014 no face details, text, data, scores or numbers. The profile cards should visually articulate structured context. Central human bust is a smooth abstract sculptural silhouette, warm and approachable. Deliberate asymmetrical composition with a few clearly separated broad cards and the central bust/ring, elegant spatial depth.\nArt direction: Pale lilac studio backdrop, rich violet and ice-blue refractions, premium glass and silver material contrast. Warm approachable humanity and human review, no surveillance, judgment imagery, robots, rating stars or rankings.",
-    "status": "cancelled-after-service-stall"
+    "status": "completed",
+    "previous_status": "cancelled-after-service-stall"
   },
   {
     "id": "zyberon",

@@ -1,9 +1,10 @@
 import { Braces, Database, Sparkles, ArrowRight } from 'lucide-react';
 import { skillGroups } from '@/lib/content';
+import { TechnologyMarquee } from './technology';
 import { ToolkitScroll } from './toolkit-scroll';
 
 export function Toolkit() {
-  return <ToolkitScroll>
+  return <><ToolkitScroll>
     <div className="section-heading" data-reveal="wipe"><div><div className="eyebrow">03 / THE FULL STACK</div><h2 id="skills-title">From the first pixel.<br/><span className="serif">To the intelligence behind it.</span></h2></div><p className="section-lede">Frontend. Backend. Data. AI.<br/>One connected product.</p></div>
     <div className="toolkit-window"><div className="toolkit-track">{skillGroups.map((group, i) => <article className={`toolkit-card toolkit-${group.id}`} key={group.id} data-reveal="tilt" aria-labelledby={`skill-${group.id}`}>
       <div className="toolkit-card-top"><span>{group.label}</span><span>0{i + 1} / 04</span></div>
@@ -16,5 +17,5 @@ export function Toolkit() {
       <h3 id={`skill-${group.id}`}>{group.title}</h3><p>{group.description}</p><ul aria-label={`${group.label} technologies`}>{group.items.map(item => <li key={item}>{item}</li>)}</ul>
     </article>)}</div></div>
     <div className="toolkit-footer" aria-hidden="true"><span>THE TOOLS BEHIND THE BUILD</span><div className="toolkit-progress"><i/></div><span className="toolkit-direction">SCROLL TO EXPLORE <ArrowRight size={15}/></span></div>
-  </ToolkitScroll>;
+  </ToolkitScroll><TechnologyMarquee/></>;
 }

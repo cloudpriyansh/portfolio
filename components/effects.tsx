@@ -13,7 +13,7 @@ export function Effects() {
     const fine = matchMedia('(pointer: fine)');
     const hero = document.querySelector<HTMLElement>('.hero-stage');
     const about = document.querySelector<HTMLElement>('.about-statement');
-    const ticker = document.querySelector<HTMLElement>('.ticker-track');
+    const ambient = Array.from(document.querySelectorAll<HTMLElement>('[data-ambient]'));
     const contact = document.querySelector<HTMLElement>('.contact-main');
     const aboutSection = document.querySelector<HTMLElement>('.about-section');
 
@@ -54,10 +54,6 @@ export function Effects() {
         hero.style.setProperty('--hero-scale', String(1 + Math.min(scrollY / innerHeight, 1) * .06));
         hero.style.setProperty('--sky-offset', `${Math.min(scrollY * -.055, 0)}px`);
       }
-      if (ticker && visible.has(ticker)) {
-        ticker.style.transform = `translate3d(${-scrollY * .14}px,0,0)`;
-        ticker.style.setProperty('--ticker-turn', `${scrollY * .12}deg`);
-      }
       if (contactRect) contact!.style.setProperty('--contact-scale', String(.9 + clamp((innerHeight - contactRect.top) / (innerHeight * .75)) * .1));
       if (aboutRect) {
         const progress = clamp((innerHeight * .9 - aboutRect.top) / (innerHeight * .5 + aboutRect.height * .5));
@@ -75,11 +71,11 @@ export function Effects() {
     const visibility = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) visible.add(entry.target); else visible.delete(entry.target);
-        if (entry.target === hero) hero?.classList.toggle('offscreen', !entry.isIntersecting);
+        if (entry.target instanceof HTMLElement && entry.target.hasAttribute('data-ambient')) entry.target.classList.toggle('offscreen', !entry.isIntersecting);
       });
       onScroll();
     }, { rootMargin: '80px' });
-    [hero, about, ticker, contact, ...patterns.map(({ anchor }) => anchor)].forEach(el => { if (el) visibility.observe(el); });
+    [hero, about, contact, ...ambient, ...patterns.map(({ anchor }) => anchor)].forEach(el => { if (el) visibility.observe(el); });
 
     const leave = () => cursor.current?.classList.remove('visible');
     const onPointer = (event: PointerEvent) => {
@@ -99,7 +95,6 @@ export function Effects() {
         hero?.style.setProperty('--sky-offset', '0px');
         contact?.style.setProperty('--contact-scale', '1');
         aboutSection?.style.setProperty('--about-turn', '0deg');
-        if (ticker) { ticker.style.transform = ''; ticker.style.setProperty('--ticker-turn', '0deg'); }
         words.forEach(word => { word.style.opacity = '1'; });
         document.querySelectorAll('.will-reveal').forEach(el => el.classList.add('revealed'));
         patterns.forEach(({ svg }) => {
@@ -117,8 +112,12 @@ export function Effects() {
     window.addEventListener('resize', onScroll, { passive: true });
     window.addEventListener('pointermove', onPointer, { passive: true });
     document.addEventListener('pointerleave', leave);
+    const onPageVisibility = () => { root.dataset.pageHidden = String(document.hidden); };
+    document.addEventListener('visibilitychange', onPageVisibility);
+    onPageVisibility();
     onPreference();
     return () => {
+      document.removeEventListener('visibilitychange', onPageVisibility);
       reveal.disconnect(); visibility.disconnect(); preferences.disconnect();
       cancelAnimationFrame(scrollFrame); cancelAnimationFrame(pointerFrame);
       reduce.removeEventListener('change', onPreference);

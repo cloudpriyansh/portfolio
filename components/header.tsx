@@ -3,7 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { ArrowUpRight, Moon, Sun, Menu, X, Pause, Play } from 'lucide-react';
 export function Header() {
-  const home = usePathname() === '/' ? '' : '/';
+  const pathname = usePathname();
+  const home = pathname === '/' ? '' : '/';
+  const [active,setActive]=useState('');
+  const header=useRef<HTMLElement>(null);
+  const links=[{label:'Work',id:'work'},{label:'About',id:'about'},{label:'Stack',id:'toolkit'},{label:'Experience',id:'experience'}];
   const [theme,setTheme]=useState('light');
   const [menu,setMenu]=useState(false);
   const [paused,setPaused]=useState(false);
@@ -17,6 +21,23 @@ export function Header() {
     mq.addEventListener('change',onSystem);return()=>mq.removeEventListener('change',onSystem);
   },[]);
   useEffect(()=>{if(menu)document.querySelector<HTMLAnchorElement>('#main-navigation a')?.focus();const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape'&&menu){setMenu(false);menuButton.current?.focus();}};document.addEventListener('keydown',onKey);return()=>document.removeEventListener('keydown',onKey);},[menu]);
+  useEffect(()=>{
+    setMenu(false);
+    if(pathname!=='/'){setActive('work');return;}
+    const observer=new IntersectionObserver(entries=>{
+      const entering=entries.filter(entry=>entry.isIntersecting);
+      if(entering.length)setActive(entering[entering.length-1].target.id);
+    },{rootMargin:'-18% 0px -65% 0px',threshold:0});
+    document.querySelectorAll('main > section').forEach(section=>observer.observe(section));
+    return()=>observer.disconnect();
+  },[pathname]);
+  useEffect(()=>{
+    if(!menu)return;
+    const outside=(event:PointerEvent)=>{if(!header.current?.contains(event.target as Node))setMenu(false);};
+    const onResize=()=>{if(innerWidth>900)setMenu(false);};
+    document.addEventListener('pointerdown',outside);window.addEventListener('resize',onResize);
+    return()=>{document.removeEventListener('pointerdown',outside);window.removeEventListener('resize',onResize);};
+  },[menu]);
   async function toggleTheme(e:React.MouseEvent<HTMLButtonElement>){
     if(changing.current)return;
     const next=theme==='light'?'dark':'light';const root=document.documentElement;
@@ -27,5 +48,9 @@ export function Header() {
     try{const transition=document.startViewTransition(update);await transition.ready;const radius=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));await root.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${radius}px at ${x}px ${y}px)`]},{duration:650,easing:'cubic-bezier(.4,0,.2,1)',pseudoElement:'::view-transition-new(root)'}).finished;await transition.finished;}catch{update();}finally{changing.current=false;}
   }
   function toggleMotion(){const next=!paused;setPaused(next);document.documentElement.dataset.motion=next?'paused':'running';try{localStorage.setItem('portfolio-motion',next?'paused':'running');}catch{}}
-  return <header className="site-header" id="top"><a className="brand" href={`${home}#top`} aria-label="Priyansh home">pd<span aria-hidden="true">✳</span></a><nav id="main-navigation" className={menu?'is-open':''} aria-label="Main navigation">{['Work','About','Experience','Contact'].map(label=><a key={label} href={`${home}#${label.toLowerCase()}`} onClick={()=>setMenu(false)}>{label}</a>)}</nav><div className="header-tools"><button className="icon-button motion-toggle" onClick={toggleMotion} aria-label={paused?'Resume animations':'Pause animations'} aria-pressed={paused} title={paused?'Resume animations':'Pause animations'}>{paused?<Play size={15}/>:<Pause size={15}/>}</button><button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme==='light'?'night':'day'} mode`} title={`Switch to ${theme==='light'?'night':'day'} mode`}><span className="theme-track"><Sun className="theme-sun" size={14}/><Moon className="theme-moon" size={13}/><span className="theme-knob"/></span></button><a className="nav-contact" href={`${home}#contact`}>Let’s talk <ArrowUpRight size={16}/></a><button ref={menuButton} className="icon-button menu-toggle" aria-expanded={menu} aria-controls="main-navigation" aria-label={menu?'Close menu':'Open menu'} onClick={()=>setMenu(!menu)}>{menu?<X size={21}/>:<Menu size={21}/>}</button></div></header>;
+  return <><div id="top" className="top-anchor" aria-hidden="true"/><header ref={header} className="site-header" onBlur={e=>{if(menu&&e.relatedTarget&&!e.currentTarget.contains(e.relatedTarget as Node))setMenu(false);}}>
+    <a className="nav-brand" href={`${home}#top`} aria-label="Priyansh home"><span className="brand">pd<span aria-hidden="true">✳</span></span><span className="nav-brand-copy">Priyansh<span>Full-stack &amp; AI</span></span></a>
+    <nav id="main-navigation" className={menu?'is-open':''} aria-label="Main navigation">{links.map(link=><a key={link.id} href={`${home}#${link.id}`} aria-current={active===link.id?'location':undefined} onClick={()=>setMenu(false)}><span className="nav-indicator"/>{link.label}</a>)}<a className="mobile-nav-contact" href={`${home}#contact`} onClick={()=>setMenu(false)}>Let’s talk <ArrowUpRight size={17}/></a></nav>
+    <div className="header-tools"><div className="nav-preferences"><button className="icon-button motion-toggle" onClick={toggleMotion} aria-label={paused?'Resume animations':'Pause animations'} aria-pressed={paused} title={paused?'Resume animations':'Pause animations'}>{paused?<Play size={15}/>:<Pause size={15}/>}</button><button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme==='light'?'night':'day'} mode`} title={`Switch to ${theme==='light'?'night':'day'} mode`}><span className="theme-track"><Sun className="theme-sun" size={14}/><Moon className="theme-moon" size={13}/><span className="theme-knob"/></span></button></div><a className="nav-contact" href={`${home}#contact`}>Let’s talk <ArrowUpRight size={16}/></a><button ref={menuButton} className="icon-button menu-toggle" aria-expanded={menu} aria-controls="main-navigation" aria-label={menu?'Close menu':'Open menu'} onClick={()=>setMenu(!menu)}>{menu?<X size={21}/>:<Menu size={21}/>}</button></div>
+  </header></>;
 }

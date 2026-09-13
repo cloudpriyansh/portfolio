@@ -91,6 +91,12 @@ Implementation: `components/project-showcase.tsx`, `components/project-scroll.ts
 
 The continuous SVG path has been removed. The homepage adapts text reveals, zoom/parallax, scroll rotation, 3D card entrances, and horizontal scrolling from [Framer University's reference](https://framer.university/blog/10-scroll-animations-to-make-your-website-stand-out) using native scrolling and small viewport-aware animation updates.
 
-`components/toolkit-scroll.tsx` provides the desktop horizontal full-stack toolkit. React/Next.js, Node.js/NestJS, Applied AI, and databases/Redis/cloud each have a dedicated card. Narrow or short viewports and reduced-motion/pause preferences use a readable grid. The existing project stack and detail routes remain in place. `components/effects.tsx` handles text emphasis, the scroll-reactive ticker, hero depth, and the contact zoom. No continuous homepage SVG overlay remains.
+`components/toolkit-scroll.tsx` provides the desktop horizontal full-stack toolkit. React/Next.js, Node.js/NestJS, Applied AI, and databases/Redis/cloud each have a dedicated card. Narrow or short viewports and reduced-motion/pause preferences use a readable grid. The existing project stack and detail routes remain in place. `components/effects.tsx` handles text emphasis, the continuously looping ticker, hero depth, and the contact zoom. No continuous homepage SVG overlay remains.
 
 The full-stack profile is reflected in the introduction, About copy, toolkit, metadata, structured data, and llms.txt. The documented job title and existing project claims are preserved.
+
+## Navigation and ambient motion
+
+The floating sticky navbar highlights the current homepage section and includes direct Work, About, Stack, and contact navigation. Its mobile menu supports Escape, outside clicks, focus return, and dismissal on navigation.
+
+Both the specialty ticker and technology logo strip loop continuously using CSS transforms on two identical groups. Six CSS 3D technology tiles float around the existing laptop character. Visibility observers pause ambient movement off-screen; hidden tabs, the global pause control, and reduced-motion preferences also suspend it. Technology SVGs are served locally from `public/tech`, with provenance in `SOURCES.txt`; there is no external icon service or 3D runtime dependency.

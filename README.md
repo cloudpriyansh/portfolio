@@ -87,10 +87,10 @@ Each `lib/content.ts` project ID is its stable slug: `/projects/growstack/`, `/p
 
 Implementation: `components/project-showcase.tsx`, `components/project-scroll.tsx`, and `app/projects/[slug]/page.tsx`. Next.js references: [static route generation](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) and [route metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata).
 
-## Continuous scroll path
+## Scroll animation sequence
 
-`components/site-thread.tsx` draws one continuous SVG path from the hero to the footer, with a moving tip that follows the reading position in either scroll direction. Desktop curves connect the sections through their open space; the mobile route stays in the gutters. A viewport-sized SVG projects document coordinates without creating a page-height layer. Geometry is sampled only when layout changes, and passive scroll events schedule one animation frame using cached points. All decoration is hidden from assistive technology and ignores pointer events.
+The continuous SVG path has been removed. The homepage adapts text reveals, zoom/parallax, scroll rotation, 3D card entrances, and horizontal scrolling from [Framer University's reference](https://framer.university/blog/10-scroll-animations-to-make-your-website-stand-out) using native scrolling and small viewport-aware animation updates.
 
-Heading wipes, toolkit card reveals, and timeline/detail reveals share the existing IntersectionObserver in `components/effects.tsx`. Project detail pages retain their small signal pattern from `components/scroll-pattern.tsx`.
+`components/toolkit-scroll.tsx` provides the desktop horizontal full-stack toolkit. React/Next.js, Node.js/NestJS, Applied AI, and databases/Redis/cloud each have a dedicated card. Narrow or short viewports and reduced-motion/pause preferences use a readable grid. The existing project stack and detail routes remain in place. `components/effects.tsx` handles text emphasis, the scroll-reactive ticker, hero depth, and the contact zoom. No continuous homepage SVG overlay remains.
 
-The header pause control and system reduced-motion preference show all content and complete, stationary paths. Direct section links are realigned after sticky-card spacing is applied. Desktop/mobile layouts, line progress during scrolling, motion pause, reverse keyboard card navigation, and project detail artwork have been checked locally.
+The full-stack profile is reflected in the introduction, About copy, toolkit, metadata, structured data, and llms.txt. The documented job title and existing project claims are preserved.

@@ -14,6 +14,7 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
     const root = document.documentElement;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const steps = Array.from(stack.querySelectorAll<HTMLElement>('[data-project-step]'));
+    const artwork = steps.map(step => step.querySelector<HTMLElement>('.project-visual'));
     const cards = steps.map(step => step.querySelector<HTMLElement>('[data-project-card]')!);
     let frame = 0, anchorFrame = 0, visible = true, enabled = false, top = 24;
 
@@ -25,6 +26,8 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
         const progress = i === cards.length - 1 ? 0 : Math.max(0, Math.min(1,
           1 - (positions[i + 1] - top) / Math.min(innerHeight * .65, 500)));
         card.style.setProperty('--covered', String(progress));
+        const entry = Math.max(0, Math.min(1, (positions[i] - top) / innerHeight));
+        artwork[i]?.style.setProperty('--art-entry', String(entry));
       });
     };
     const schedule = () => { if (!frame && visible && enabled) frame = requestAnimationFrame(paint); };
@@ -36,6 +39,7 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
       stack.style.setProperty('--stack-top', `${top}px`);
       stack.dataset.stacked = String(enabled);
       cards.forEach(card => card.style.removeProperty('--covered'));
+      artwork.forEach(art => art?.style.removeProperty('--art-entry'));
       schedule();
     };
     const scrollToStep = (index: number) => {

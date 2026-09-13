@@ -14,6 +14,9 @@ export function Effects() {
     const hero = document.querySelector<HTMLElement>('.hero-stage');
     const about = document.querySelector<HTMLElement>('.about-statement');
     const ticker = document.querySelector<HTMLElement>('.ticker-track');
+    const contact = document.querySelector<HTMLElement>('.contact-main');
+    const aboutSection = document.querySelector<HTMLElement>('.about-section');
+
     const words = Array.from(document.querySelectorAll<HTMLElement>('.about-word'));
     const patterns = Array.from(document.querySelectorAll<SVGSVGElement>('[data-scroll-pattern]')).map(svg => ({
       svg, anchor: document.querySelector<HTMLElement>(svg.dataset.patternAnchor || 'body') || svg,
@@ -38,6 +41,7 @@ export function Effects() {
       const paused = stopped();
       // Read visible geometry before changing any styles.
       const aboutRect = !paused && about && visible.has(about) ? about.getBoundingClientRect() : null;
+      const contactRect = !paused && contact && visible.has(contact) ? contact.getBoundingClientRect() : null;
       const patternProgress = paused ? [] : patterns.filter(({ anchor }) => visible.has(anchor)).map(({ svg, anchor }) => {
         const rect = anchor.getBoundingClientRect();
         const progress = clamp((innerHeight * .9 - rect.top) / (innerHeight * .55 + rect.height * .5));
@@ -45,11 +49,20 @@ export function Effects() {
       });
       root.style.setProperty('--scroll-progress', String(max > 0 ? scrollY / max : 0));
       if (paused) return;
-      if (hero && visible.has(hero)) hero.style.setProperty('--hero-offset', `${Math.min(scrollY * .12, 70)}px`);
-      if (ticker && visible.has(ticker)) ticker.style.transform = `translate3d(${-((scrollY * .1) % 200)}px,0,0)`;
+      if (hero && visible.has(hero)) {
+        hero.style.setProperty('--hero-offset', `${Math.min(scrollY * .1, 55)}px`);
+        hero.style.setProperty('--hero-scale', String(1 + Math.min(scrollY / innerHeight, 1) * .06));
+        hero.style.setProperty('--sky-offset', `${Math.min(scrollY * -.055, 0)}px`);
+      }
+      if (ticker && visible.has(ticker)) {
+        ticker.style.transform = `translate3d(${-scrollY * .14}px,0,0)`;
+        ticker.style.setProperty('--ticker-turn', `${scrollY * .12}deg`);
+      }
+      if (contactRect) contact!.style.setProperty('--contact-scale', String(.9 + clamp((innerHeight - contactRect.top) / (innerHeight * .75)) * .1));
       if (aboutRect) {
         const progress = clamp((innerHeight * .9 - aboutRect.top) / (innerHeight * .5 + aboutRect.height * .5));
         words.forEach((word, index) => { word.style.opacity = progress > index / words.length ? '1' : '.35'; });
+        aboutSection?.style.setProperty('--about-turn', `${progress * 150}deg`);
       }
       patternProgress.forEach(({ svg, progress }) => {
         svg.style.setProperty('--path-offset', String(1 - progress));
@@ -66,7 +79,7 @@ export function Effects() {
       });
       onScroll();
     }, { rootMargin: '80px' });
-    [hero, about, ticker, ...patterns.map(({ anchor }) => anchor)].forEach(el => { if (el) visibility.observe(el); });
+    [hero, about, ticker, contact, ...patterns.map(({ anchor }) => anchor)].forEach(el => { if (el) visibility.observe(el); });
 
     const leave = () => cursor.current?.classList.remove('visible');
     const onPointer = (event: PointerEvent) => {
@@ -82,7 +95,11 @@ export function Effects() {
     const onPreference = () => {
       if (stopped()) {
         hero?.style.setProperty('--hero-offset', '0px');
-        if (ticker) ticker.style.transform = '';
+        hero?.style.setProperty('--hero-scale', '1');
+        hero?.style.setProperty('--sky-offset', '0px');
+        contact?.style.setProperty('--contact-scale', '1');
+        aboutSection?.style.setProperty('--about-turn', '0deg');
+        if (ticker) { ticker.style.transform = ''; ticker.style.setProperty('--ticker-turn', '0deg'); }
         words.forEach(word => { word.style.opacity = '1'; });
         document.querySelectorAll('.will-reveal').forEach(el => el.classList.add('revealed'));
         patterns.forEach(({ svg }) => {

@@ -1,6 +1,6 @@
 # Priyansh Dobariya
 
-> Applied AI Engineer building production LLM systems, RAG architectures, AI agents, and business automation.
+> Full-stack and Applied AI Engineer building web products, backend systems, LLM applications, and AI agents.
 
 ## Profile
 - Name: Priyansh Dobariya
@@ -8,6 +8,12 @@
 - Education: B.Tech in Information Technology, Dharmsinh Desai University, 2021–2025; CPI 8.04/10
 - Contact: priyansh20032003@gmail.com
 - LinkedIn: https://www.linkedin.com/in/priyansh203
+
+## Full-stack toolkit
+- Frontend: React, Next.js, TypeScript, JavaScript, HTML and CSS, responsive UI.
+- Backend: Node.js, NestJS, Python, FastAPI, REST APIs, GraphQL.
+- Data and infrastructure: Redis, PostgreSQL, MongoDB, ClickHouse, AWS, Docker.
+- Applied AI: LangGraph, LangChain, CrewAI, RAG, agents, and LLM evaluation.
 
 ## Selected work
 - [Growstack AI](/projects/growstack/): Natural-language-to-SQL, query validation, and structured data exports over ClickHouse datasets containing 330M+ records. LangGraph, AWS Bedrock, ClickHouse, S3.

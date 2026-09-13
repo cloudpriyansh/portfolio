@@ -1,4 +1,4 @@
-export const profile = { name: 'Priyansh Dobariya', role: 'Applied AI Engineer', email: 'priyansh20032003@gmail.com', linkedin: 'https://www.linkedin.com/in/priyansh203', description: 'Applied AI engineer building production LLM systems, RAG architectures, AI agents, and automation across analytics, ecommerce, and recruitment.' };
+export const profile = { name: 'Priyansh Dobariya', role: 'Full-Stack & Applied AI Engineer', email: 'priyansh20032003@gmail.com', linkedin: 'https://www.linkedin.com/in/priyansh203', description: 'Full-stack and Applied AI engineer building React and Next.js interfaces, Node.js and NestJS backends, databases, Redis caching, LLM systems, and AI agents.' };
 
 // Add future projects here. Include verified claims and approved public URLs only.
 export const projects = [
@@ -8,7 +8,8 @@ export const projects = [
   { id:'voice-agent', name:'AI Voice Agent', category:'VOICE & CONVERSATIONAL AI', title:'A conversation that moves things forward.', description:'Voice workflows for lead qualification, appointment scheduling, and contextual follow-ups.', technologies:['Retell AI','FastAPI','MongoDB'], details:['Built AI voice workflows for lead qualification and appointment scheduling.','Handled conversational context and follow-up workflows.','Implemented MongoDB-based state management with retry and recovery handling.'] },
 ];
 export const skillGroups = [
-  { title:'AI & intelligence', items:['LangGraph','LangChain','CrewAI','RAG','Agent orchestration','LLM evaluation','Embeddings','Hybrid search'] },
-  { title:'The engineering', items:['Python','TypeScript','FastAPI','Next.js','Node.js','REST APIs','GraphQL','n8n'] },
-  { title:'Data & infrastructure', items:['AWS','ClickHouse','PostgreSQL','MongoDB','Pinecone','Docker','S3','DynamoDB'] },
+  { id:'frontend', title:'Interfaces that feel right.', label:'Frontend', description:'Responsive web experiences, from the first interaction to the finished product.', items:['React','Next.js','TypeScript','JavaScript','HTML & CSS','Responsive UI'] },
+  { id:'backend', title:'Systems that do the work.', label:'Backend', description:'APIs, application logic, and services that connect the whole product.', items:['Node.js','NestJS','Python','FastAPI','REST APIs','GraphQL','n8n'] },
+  { id:'ai', title:'Intelligence, built in.', label:'Applied AI', description:'Language models, retrieval, and agents connected to useful workflows.', items:['LangGraph','LangChain','CrewAI','RAG','Agent orchestration','LLM evaluation','Embeddings'] },
+  { id:'data', title:'A solid foundation.', label:'Data & infrastructure', description:'Databases, caching, and cloud infrastructure behind the experience.', items:['Redis','PostgreSQL','MongoDB','ClickHouse','AWS','Docker','Pinecone','S3','DynamoDB'] },
 ];

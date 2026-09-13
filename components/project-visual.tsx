@@ -7,7 +7,7 @@ export function ProjectVisual({id, sizes = '(max-width: 760px) calc(100vw - 40px
     return <figure className={`project-visual ${styles.cover}`} style={{'--art-background': artwork.background} as React.CSSProperties}>
       <picture className={styles.picture}>
         <source type="image/avif" srcSet={[480,800,1280].map(w=>`/projects/${id}-${w}.avif ${w}w`).join(', ')} sizes={sizes}/>
-        <img className={styles.image} src={`/projects/${id}-800.webp`} srcSet={[480,800,1280].map(w=>`/projects/${id}-${w}.webp ${w}w`).join(', ')} sizes={sizes} width={1280} height={800} alt={artwork.alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async"/>
+        <img className={styles.image} data-project-image src={`/projects/${id}-800.webp`} srcSet={[480,800,1280].map(w=>`/projects/${id}-${w}.webp ${w}w`).join(', ')} sizes={sizes} width={1280} height={800} alt={artwork.alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async"/>
       </picture>
       {id==='growstack' && <figcaption className={styles.metric}><strong>330M+</strong> records</figcaption>}
     </figure>;

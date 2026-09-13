@@ -2,6 +2,10 @@
 
 A responsive Next.js App Router portfolio with pre-rendered content, local fonts, an original laptop character, day/night themes, and accessible motion.
 
+## Add or update projects from another laptop
+
+Use [the project portfolio guide](docs/PROJECT-PORTFOLIO-GUIDE.md). It includes a copyable assistant prompt, source-code inspection workflow, technical case-study requirements, screenshot guidance, and instructions to implement the actual portfolio changes. The guide is an instruction file, not an automatic importer.
+
 ## Run
 
 Node.js 20.9+ is required (Node 24 was used here).
@@ -17,7 +21,7 @@ Open http://localhost:3000. To create the production static export:
 npm run build
 ```
 
-Deploy the `out/` directory to a static host. On Vercel, select Next.js and use the default build command. There are no runtime APIs, databases, or server requirements. `next start` does not serve a static export; use a static HTTP server to inspect `out/` locally.
+The build stages a Cloudflare-compatible Worker in `dist/server/index.js` and public assets in `dist/client`. Use the configured Sites hosting workflow for the complete application. Hosting only `out/` serves the pages but omits the contact API. `next start` does not serve this static-export setup; use `npm run dev` for local development.
 
 ## Content
 

@@ -312,3 +312,5 @@
 @media(max-width:760px) { .hero-stage .celestial { top:18px; left:44%; width:34px; height:34px; } .brand-symbol { width:30px; height:30px; } }
 .hero-stage .celestial { left:70%; top:12px; }
 @media(max-width:760px) { .hero-stage .celestial { left:70%; top:0; } }
+
+.expertise-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.expertise-projects article{padding:24px 0;border-top:1px solid var(--line)}.expertise-projects h3{font-size:1.3rem;margin-bottom:12px}.expertise-projects p{color:var(--muted);line-height:1.7;margin-bottom:16px}.expertise-projects .expertise-stack{font-size:.9rem}@media(max-width:760px){.expertise-projects{grid-template-columns:1fr;gap:16px}}

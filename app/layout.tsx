@@ -15,7 +15,7 @@ export const metadata:Metadata={
   openGraph:{type:'website',locale:'en_IN',siteName:'Priyansh Dobariya',title:'Priyansh Dobariya — Full-Stack & Applied AI Engineer',description:profile.description,...(siteUrl?{url:siteUrl,images:[{url:`${siteUrl}/og.png`,width:1200,height:630,alt:'Priyansh Dobariya — Full-Stack & Applied AI Engineer'}]}:{})},
   twitter:{card:'summary_large_image',title:'Priyansh Dobariya — Full-Stack & Applied AI Engineer',description:profile.description,...(siteUrl?{images:[`${siteUrl}/og.png`]}:{})},
   icons:{icon:[{url:'/favicon.svg',type:'image/svg+xml'}],apple:'/apple-touch-icon.png'},
-  ...(process.env.GOOGLE_SITE_VERIFICATION?{verification:{google:process.env.GOOGLE_SITE_VERIFICATION}}:{}),
+  verification:{google:process.env.GOOGLE_SITE_VERIFICATION,other:process.env.BING_SITE_VERIFICATION?{'msvalidate.01':process.env.BING_SITE_VERIFICATION}:{}},
   category:'technology',referrer:'strict-origin-when-cross-origin',
 };
 export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:[{media:'(prefers-color-scheme: light)',color:'#f8f8f2'},{media:'(prefers-color-scheme: dark)',color:'#121d25'}]};

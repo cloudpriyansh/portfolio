@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find(project => project.id === slug);
   if (!project) notFound();
-  const title = `${project.name} — Priyansh Dobariya`;
+  const title = `${project.name}: ${project.technologies.slice(0, 2).join(" & ")} | Priyansh Dobariya`;
   const url = `${siteUrl}/projects/${project.id}/`;
   const image = projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : null;
   return {
@@ -38,6 +38,7 @@ export default async function ProjectPage({ params }: Props) {
   const next = projects[(index + 1) % projects.length];
   const url = `${siteUrl}/projects/${project.id}/`;
   const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', '@id': `${url}#page`, url, name: project.name, description: project.description, inLanguage: 'en', isPartOf: { '@id': `${siteUrl}/#website` }, mainEntity: { '@id': `${url}#project` }, author: { '@type': 'Person', '@id': `${siteUrl}/#priyansh`, name: profile.name, sameAs: [profile.linkedin] } },
     { '@type': 'CreativeWork', '@id': `${url}#project`, name: project.name, description: project.description,
       url, about: project.category, keywords: project.technologies.join(', '),
       image: projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : undefined,
@@ -56,6 +57,7 @@ export default async function ProjectPage({ params }: Props) {
       <header className={styles.intro}>
         <div className="eyebrow">PROJECT {String(index + 1).padStart(2, '0')} / {project.category}</div>
         <h1>{project.name}<span className="accent">.</span></h1>
+        <p className={styles.description}>Engineering case study by <Link href="/#about">{profile.name}</Link> · {project.technologies.join(" · ")}</p>
         <p className={styles.tagline}>{project.title}</p>
         <p className={styles.description}>{project.description}</p>
       </header>

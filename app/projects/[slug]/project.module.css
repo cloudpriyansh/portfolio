@@ -63,4 +63,13 @@
 .capabilities h3 { font-size:18px; font-weight:500; }
 .source { display:inline-flex; align-items:center; gap:8px; min-height:44px; color:var(--accent); }
 .productContext small { display:block; margin-top:12px; color:var(--muted); line-height:1.6; }
+.caseStudy { max-width: 950px; margin: 10px auto 90px; }
+.caseStudy section { padding: 40px 0; border-top: 1px solid var(--line); }
+.caseStudy h2 { font-size: clamp(27px, 3.3vw, 39px); letter-spacing: -.035em; margin: 15px 0 18px; }
+.caseStudy p, .caseStudy li { color: var(--muted); font-size: 17px; line-height: 1.8; }
+.caseStudy p { margin: 0; max-width: 75ch; }
+.caseStudy ul { margin: 0; padding-left: 24px; }
+.caseStudy li + li { margin-top: 12px; }
+.caseStudy .boundary { margin-top: 18px; font-size: 15px; border-left: 2px solid var(--accent); padding-left: 16px; }
 @media(max-width:760px) { .capabilities { grid-template-columns:1fr; gap:12px; } .productContext { padding-top:45px; } }
+@media(max-width:760px) { .caseStudy { margin-bottom: 55px; } .caseStudy section { padding: 28px 0; } .caseStudy p, .caseStudy li { font-size: 16px; } }

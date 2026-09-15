@@ -59,3 +59,11 @@
 @media(max-width:760px) { .zyberonTop { font-size:12px; letter-spacing:.5px; } .zyberonBrand { padding:20px 0; } .zyberonBrand p { margin-top:12px; } .zyberonFlow > span { flex-direction:column; padding:10px 8px; gap:7px; } .zyberonFlow { gap:5px; } .zyberonFlow b { font-size:12px; } }
 
 .concept { position:absolute; left:16px; bottom:14px; margin:0; padding:7px 10px; background:#071329dd; color:#d8eaff; border:1px solid #99cfff30; border-radius:6px; font-size:10px; letter-spacing:.8px; }
+.diagram { margin: 0; width: 100%; aspect-ratio: 8/5; border-radius: 16px; background: linear-gradient(135deg, var(--accent-soft), var(--surface)); border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; padding: clamp(22px,4vw,54px); color: var(--ink); }
+.diagramTop { display: flex; justify-content: space-between; gap: 20px; font-size: 12px; letter-spacing: .12em; color: var(--muted); }
+.diagramFlow { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(8px,2vw,28px); align-items: stretch; }
+.diagramStep { min-width: 0; min-height: 115px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: clamp(14px,2.5vw,27px); display: flex; flex-direction: column; justify-content: space-between; }
+.diagramStep span { color: var(--accent); font-size: 13px; }
+.diagramStep strong { font-size: clamp(15px,2.3vw,29px); line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.diagram figcaption { color: var(--muted); font-size: 12px; }
+@media(max-width:760px) { .diagram { aspect-ratio: 8/5; } .diagramTop { font-size: 9px; } .diagramStep { min-height: 80px; padding: 10px; } .diagramStep strong { font-size: 13px; } .diagram figcaption { font-size: 10px; } }

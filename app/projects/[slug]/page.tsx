@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: Props) {
     <main id="main" className={`container ${styles.page}`}>
       <a href={`/#${project.id}`} className={styles.back}><ArrowLeft size={17}/> All projects</a>
       <header className={styles.intro}>
-        <div className="eyebrow">PROJECT 0{index + 1} / {project.category}</div>
+        <div className="eyebrow">PROJECT {String(index + 1).padStart(2, '0')} / {project.category}</div>
         <h1>{project.name}<span className="accent">.</span></h1>
         <p className={styles.tagline}>{project.title}</p>
         <p className={styles.description}>{project.description}</p>
@@ -78,6 +78,13 @@ export default async function ProjectPage({ params }: Props) {
           <h3 className={styles.stackTitle}>Tools & technologies</h3><ul className={`tech-tags ${styles.tags}`}>{project.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul>
         </div>
       </section>
+      {project.caseStudy && <div className={styles.caseStudy}>
+        <section aria-labelledby="problem-title"><div className="eyebrow">THE PROBLEM</div><h2 id="problem-title">What this solves</h2><p>{project.caseStudy.problem}</p></section>
+        <section aria-labelledby="architecture-title"><div className="eyebrow">ARCHITECTURE</div><h2 id="architecture-title">How it works</h2><p>{project.caseStudy.architecture}</p></section>
+        <section aria-labelledby="workflow-title"><div className="eyebrow">ONE WORKFLOW</div><h2 id="workflow-title">From input to outcome</h2><p>{project.caseStudy.workflow}</p></section>
+        <section aria-labelledby="decisions-title"><div className="eyebrow">ENGINEERING</div><h2 id="decisions-title">Decisions visible in the code</h2><ul>{project.caseStudy.decisions.map(item => <li key={item}>{item}</li>)}</ul></section>
+        <section aria-labelledby="benefit-title"><div className="eyebrow">BENEFIT & EVIDENCE</div><h2 id="benefit-title">What the workflow enables</h2><p>{project.caseStudy.benefit}</p>{project.caseStudy.boundary && <p className={styles.boundary}>{project.caseStudy.boundary}</p>}</section>
+      </div>}
       <Link href={`/projects/${next.id}/`} className={styles.next} data-reveal="rise" aria-label={`Next project: ${next.name}`}><div><span>EXPLORE NEXT</span><h2>{next.name}</h2></div><ArrowRight size={36} strokeWidth={1.3}/></Link>
     </main>
     <footer className={`container ${styles.footer}`}><Link href="/">© {new Date().getFullYear()} {profile.name}</Link><Link href="/#contact">Let’s build something <ArrowUpRight size={16}/></Link></footer>

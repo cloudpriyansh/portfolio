@@ -21,5 +21,13 @@ export function ProjectVisual({id, sizes = '(max-width: 760px) calc(100vw - 40px
       <span><ShoppingBag aria-hidden="true"/><b>Product context</b></span><i aria-hidden="true">→</i><span><Sparkles aria-hidden="true"/><b>AI creative</b></span><i aria-hidden="true">→</i><span><ArrowUpRight aria-hidden="true"/><b>Campaigns</b></span>
     </div>
   </figure>;
-  return <div className="project-visual voice-visual" aria-label="AI voice workflows for qualifying leads, scheduling appointments, and follow-ups"><div className="visual-label"><Mic size={15}/> CONVERSATIONS WITH CONTEXT</div><div className="waveform" aria-hidden="true">{[12,21,37,18,54,72,38,88,62,100,74,49,83,111,69,48,82,59,38,69,46,25,51,33,17,29,12].map((h,i)=><i key={i} style={{height:h,'--bar-index':i} as React.CSSProperties}/>)}</div><div className="voice-labels"><span>Qualify</span><span>Schedule</span><span>Follow up</span></div><span className="visual-footnote">BUILT TO LISTEN. DESIGNED TO ACT.</span></div>;
+  const labels: Record<string, [string,string,string]> = {
+    brewmind: ['PDF library','Retrieve passages','Cited answer'], mychatpdf: ['Upload documents','Search context','Inspect answer'],
+    'investor-report': ['Source files','Review facts','Generate PDF'], 'workforce-engine': ['Agent request','Route & tools','Human handoff'],
+    'top-cars-n8n': ['Inbound lead','Specialist workflow','CRM update'], 'hotel-social-n8n': ['Social event','Filter & draft','Slack approval'],
+    'epulse-discovery': ['Discover pages','Validate events','Review in Sheets'], 'trading-alerts': ['Market event','Check access','Telegram alert'],
+    'trading-engine': ['Market feed','Preflight & parity','Broker reconcile'],
+  };
+  const steps = labels[id] ?? ['Input','Process','Outcome'];
+  return <figure className={styles.diagram} aria-label={`Workflow: ${steps.join(' to ')}`}><div className={styles.diagramTop}><span>PROJECT WORKFLOW</span><span>{id.replaceAll('-', ' ').toUpperCase()}</span></div><div className={styles.diagramFlow}>{steps.map((step,i)=><div key={step} className={styles.diagramStep}><span>0{i+1}</span><strong>{step}</strong></div>)}</div><figcaption>Implementation overview · diagram</figcaption></figure>;
 }

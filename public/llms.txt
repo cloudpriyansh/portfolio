@@ -20,6 +20,15 @@
 - [uRecruits](/projects/urecruits/): Resume parsing, candidate matching, AI scoring, monitoring, audit trails, and human review workflows.
 - [Zyberon AI](/projects/zyberon/): Ecommerce automation connecting Shopify, n8n, generative AI, and Meta APIs.
 - [AI Voice Agent](/projects/voice-agent/): Lead qualification, appointment scheduling, context handling, and follow-ups using Retell AI, FastAPI, and MongoDB.
+- [BrewMind AI](/projects/brewmind/): PDF ingestion, passage retrieval, cited espresso answers, and saved sessions. Next.js, OpenAI, Supabase.
+- [MyChatPDF](/projects/mychatpdf/): Document processing, retrieval-backed chat, previews, and organization. React, FastAPI.
+- [Investor Report Generator](/projects/investor-report/): Source-aware extraction, fact review, and versioned PDF generation. FastAPI, Angular, SQLite.
+- [Bitontree Workforce Engine](/projects/workforce-engine/): Declarative specialist agents, routing, scoped memory, and human escalation. FastAPI, Redis, Qdrant.
+- [Top Cars Sales Agent](/projects/top-cars-n8n/): n8n lead routing across automotive-service sub-workflows and CRM context.
+- [Hotel Social Media Agent](/projects/hotel-social-n8n/): n8n social-event normalization, rule-first triage, draft generation, and Slack approval.
+- [EPulse Event Discovery](/projects/epulse-discovery/): Sourced event extraction, validation, deduplication, and Google Sheets review.
+- [Profit Builders Alerts](/projects/trading-alerts/): Subscriber-aware Telegram alerts for options flow and news.
+- [40-Minute Auto Trader](/projects/trading-engine/): Execution readiness gates, market-feed parity checks, durable state, and broker reconciliation.
 
 ## Source
 - [Portfolio](/): Profile, selected work, toolkit, and experience.

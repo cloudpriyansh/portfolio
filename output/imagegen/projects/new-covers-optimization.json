@@ -1,0 +1,146 @@
+[
+  {
+    "project": "brewmind",
+    "width": 480,
+    "avifBytes": 19560,
+    "webpBytes": 26182
+  },
+  {
+    "project": "brewmind",
+    "width": 800,
+    "avifBytes": 38974,
+    "webpBytes": 55862
+  },
+  {
+    "project": "brewmind",
+    "width": 1280,
+    "avifBytes": 69650,
+    "webpBytes": 108732
+  },
+  {
+    "project": "mychatpdf",
+    "width": 480,
+    "avifBytes": 11994,
+    "webpBytes": 18868
+  },
+  {
+    "project": "mychatpdf",
+    "width": 800,
+    "avifBytes": 22715,
+    "webpBytes": 38368
+  },
+  {
+    "project": "mychatpdf",
+    "width": 1280,
+    "avifBytes": 39300,
+    "webpBytes": 74056
+  },
+  {
+    "project": "workforce-engine",
+    "width": 480,
+    "avifBytes": 18004,
+    "webpBytes": 21830
+  },
+  {
+    "project": "workforce-engine",
+    "width": 800,
+    "avifBytes": 35465,
+    "webpBytes": 46284
+  },
+  {
+    "project": "workforce-engine",
+    "width": 1280,
+    "avifBytes": 63428,
+    "webpBytes": 93004
+  },
+  {
+    "project": "top-cars-n8n",
+    "width": 480,
+    "avifBytes": 16689,
+    "webpBytes": 22526
+  },
+  {
+    "project": "top-cars-n8n",
+    "width": 800,
+    "avifBytes": 31172,
+    "webpBytes": 45502
+  },
+  {
+    "project": "top-cars-n8n",
+    "width": 1280,
+    "avifBytes": 54199,
+    "webpBytes": 86720
+  },
+  {
+    "project": "hotel-social-n8n",
+    "width": 480,
+    "avifBytes": 21341,
+    "webpBytes": 28436
+  },
+  {
+    "project": "hotel-social-n8n",
+    "width": 800,
+    "avifBytes": 39387,
+    "webpBytes": 57564
+  },
+  {
+    "project": "hotel-social-n8n",
+    "width": 1280,
+    "avifBytes": 66786,
+    "webpBytes": 107124
+  },
+  {
+    "project": "epulse-discovery",
+    "width": 480,
+    "avifBytes": 25133,
+    "webpBytes": 30174
+  },
+  {
+    "project": "epulse-discovery",
+    "width": 800,
+    "avifBytes": 50208,
+    "webpBytes": 65438
+  },
+  {
+    "project": "epulse-discovery",
+    "width": 1280,
+    "avifBytes": 90101,
+    "webpBytes": 127728
+  },
+  {
+    "project": "trading-engine",
+    "width": 480,
+    "avifBytes": 14316,
+    "webpBytes": 19682
+  },
+  {
+    "project": "trading-engine",
+    "width": 800,
+    "avifBytes": 30922,
+    "webpBytes": 44592
+  },
+  {
+    "project": "trading-engine",
+    "width": 1280,
+    "avifBytes": 59215,
+    "webpBytes": 91152
+  },
+  {
+    "project": "sketchapaw",
+    "width": 480,
+    "avifBytes": 27788,
+    "webpBytes": 35790
+  },
+  {
+    "project": "sketchapaw",
+    "width": 800,
+    "avifBytes": 60347,
+    "webpBytes": 80328
+  },
+  {
+    "project": "sketchapaw",
+    "width": 1280,
+    "avifBytes": 116531,
+    "webpBytes": 166960
+  }
+]

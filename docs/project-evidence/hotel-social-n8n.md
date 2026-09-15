@@ -6,3 +6,4 @@
 | Supporting component or scope | `n8n_tobi/tests/README.md` | Implementation or source documentation; measured impact unverified | Benefit stated as functional outcome. |
 
 No source screenshots were selected. Covers without real images are labeled implementation diagrams; existing covers retain their prior provenance records. Personal role and quantitative benefit need owner confirmation.
+Cover: built-in AI-generated concept image, not a shipped interface screenshot. Prompt and source are recorded in `output/imagegen/projects/new-covers.json`.

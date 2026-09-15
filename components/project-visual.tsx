@@ -10,6 +10,7 @@ export function ProjectVisual({id, sizes = '(max-width: 760px) calc(100vw - 40px
         <img className={styles.image} data-project-image src={`/projects/${id}-800.webp`} srcSet={[480,800,1280].map(w=>`/projects/${id}-${w}.webp ${w}w`).join(', ')} sizes={sizes} width={1280} height={800} alt={artwork.alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} decoding="async"/>
       </picture>
       {id==='voice-agent' && <figcaption className={styles.concept}>AI VOICE AGENT · CONCEPT VISUAL</figcaption>}
+      {artwork.concept && <figcaption className={styles.concept}>AI-GENERATED · CONCEPT VISUAL</figcaption>}
       {id==='growstack' && <figcaption className={styles.metric}><strong>330M+</strong> records</figcaption>}
     </figure>;
   }
@@ -23,9 +24,9 @@ export function ProjectVisual({id, sizes = '(max-width: 760px) calc(100vw - 40px
   </figure>;
   const labels: Record<string, [string,string,string]> = {
     brewmind: ['PDF library','Retrieve passages','Cited answer'], mychatpdf: ['Upload documents','Search context','Inspect answer'],
-    'investor-report': ['Source files','Review facts','Generate PDF'], 'workforce-engine': ['Agent request','Route & tools','Human handoff'],
+    'workforce-engine': ['Agent request','Route & tools','Human handoff'],
     'top-cars-n8n': ['Inbound lead','Specialist workflow','CRM update'], 'hotel-social-n8n': ['Social event','Filter & draft','Slack approval'],
-    'epulse-discovery': ['Discover pages','Validate events','Review in Sheets'], 'trading-alerts': ['Market event','Check access','Telegram alert'],
+    'epulse-discovery': ['Discover pages','Validate events','Review in Sheets'],
     'trading-engine': ['Market feed','Preflight & parity','Broker reconcile'],
   };
   const steps = labels[id] ?? ['Input','Process','Outcome'];

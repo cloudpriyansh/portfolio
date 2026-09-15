@@ -1,0 +1,59 @@
+[
+  {
+    "id": "brewmind",
+    "source": "output/imagegen/projects/brewmind-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Espresso cup and portafilter linked to cited passages in translucent brewing-PDF pages; warm ivory, forest green, copper. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "mychatpdf",
+    "source": "output/imagegen/projects/mychatpdf-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Open PDF with a search beam highlighting one passage and a connected answer card; warm ivory, forest green, slate blue. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "workforce-engine",
+    "source": "output/imagegen/projects/workforce-engine-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Specialist glass agent modules around a routing hub, with tool links and amber human-review handoff; dark teal and mint. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "top-cars-n8n",
+    "source": "output/imagegen/projects/top-cars-n8n-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Generic luxury car and customer conversation branching into protective film, ceramic coating and window tint, then a CRM record; graphite and teal. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "hotel-social-n8n",
+    "source": "output/imagegen/projects/hotel-social-n8n-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Premium hotel concierge setting with multiple social-message symbols normalized into triage, drafted reply and human approval; green, ivory, brass. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "epulse-discovery",
+    "source": "output/imagegen/projects/epulse-discovery-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: World map with future event calendars and venue silhouettes linked to a sourced confidence-aware review list; ivory, pine green, gold. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "trading-engine",
+    "source": "output/imagegen/projects/trading-engine-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Market feed entering readiness gates and candle-parity comparison before broker reconciliation; graphite, forest green, amber. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  },
+  {
+    "id": "sketchapaw",
+    "source": "output/imagegen/projects/sketchapaw-original.png",
+    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Generic golden retriever photograph transforming into watercolor custom portrait with preview and review cards; ivory, lavender, sage. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
+    "tool": "built-in imagegen",
+    "provenance": "AI-generated concept, not shipped UI"
+  }
+]
+

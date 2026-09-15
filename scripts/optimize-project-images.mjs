@@ -3,8 +3,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 // Re-encode the reviewed ImageGen originals for the static Next.js export.
-// Usage: node scripts/optimize-project-images.mjs
-const manifestPath = 'output/imagegen/projects/manifest.json';
+// Usage: node scripts/optimize-project-images.mjs [manifest path]
+const manifestPath = process.argv[2] ?? 'output/imagegen/projects/manifest.json';
 const projects = JSON.parse(await readFile(manifestPath, 'utf8'));
 const target = 'public/projects';
 await mkdir(target, { recursive: true });
@@ -20,5 +20,6 @@ for (const project of projects) {
     report.push({ project: project.id, width, avifBytes: outputs[0].size, webpBytes: outputs[1].size });
   }
 }
-await writeFile('output/imagegen/projects/optimization.json', JSON.stringify(report, null, 2) + '\n');
+const reportPath = manifestPath === 'output/imagegen/projects/manifest.json' ? 'output/imagegen/projects/optimization.json' : path.join(path.dirname(manifestPath), `${path.basename(manifestPath, '.json')}-optimization.json`);
+await writeFile(reportPath, JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify(report, null, 2));

@@ -18,7 +18,7 @@
 ## Selected work
 - [Growstack AI](/projects/growstack/): Priyansh built the Python analytics backend for LangGraph filter extraction, ClickHouse querying, previews, and tracked exports.
 - [uRecruits](/projects/urecruits/): Priyansh built the NestJS multi-agent service, with supervisor routing to specialist job, workflow, assessment, interview-scheduling, and guidance agents.
-- [Zyberon AI](/projects/zyberon/): Ecommerce automation connecting Shopify, n8n, generative AI, and Meta APIs.
+- [Zyberon AI](/projects/zyberon/): Priyansh built the Shopify automation platform from scratch, connecting a Next.js dashboard, Supabase, n8n, Gemini, Shopify, Meta, and Stripe workflows.
 - [AI Voice Agent](/projects/voice-agent/): Lead qualification, appointment scheduling, context handling, and follow-ups using Retell AI, FastAPI, and MongoDB.
 - [BrewMind AI](/projects/brewmind/): PDF ingestion, passage retrieval, cited espresso answers, and saved sessions. Next.js, OpenAI, Supabase.
 - [MyChatPDF](/projects/mychatpdf/): Document processing, retrieval-backed chat, previews, and organization. React, FastAPI.

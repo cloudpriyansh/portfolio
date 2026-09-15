@@ -22,7 +22,7 @@ export function ProjectVisual({id, sizes = '(max-width: 760px) calc(100vw - 40px
     </div>
   </figure>;
   const labels: Record<string, [string,string,string]> = {
-    brewmind: ['PDF library','Retrieve passages','Cited answer'], mychatpdf: ['Upload documents','Search context','Inspect answer'],
+    mychatpdf: ['Upload documents','Search context','Inspect answer'],
     'workforce-engine': ['Agent request','Route & tools','Human handoff'],
     'top-cars-n8n': ['Inbound lead','Specialist workflow','CRM update'], 'hotel-social-n8n': ['Social event','Filter & draft','Slack approval'],
     'epulse-discovery': ['Discover pages','Validate events','Review in Sheets'],

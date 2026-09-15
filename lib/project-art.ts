@@ -11,7 +11,6 @@ export const projectArtwork: Record<string, { alt: string; background: string; c
     alt: 'Translucent violet profile cards orbit a frosted glass human figure and silver ring, representing recruitment with people at its center.',
     background: '#ded5f0',
   },
-  'brewmind': { alt: 'AI-generated espresso scene with translucent brewing guide pages and highlighted source passages.', background: '#e8dfcf', concept: true },
   'mychatpdf': { alt: 'AI-generated open document with a search beam linking a selected passage to an answer card.', background: '#dfe6e1', concept: true },
   'workforce-engine': { alt: 'AI-generated glass specialist agent modules connected through a central router and human-review nodes.', background: '#092c31', concept: true },
   'top-cars-n8n': { alt: 'AI-generated automotive service scene with a lead message branching to protective film, coating, and tint before a CRM card.', background: '#1c3138', concept: true },

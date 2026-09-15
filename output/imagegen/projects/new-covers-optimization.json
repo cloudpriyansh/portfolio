@@ -1,23 +1,5 @@
 [
   {
-    "project": "brewmind",
-    "width": 480,
-    "avifBytes": 19560,
-    "webpBytes": 26182
-  },
-  {
-    "project": "brewmind",
-    "width": 800,
-    "avifBytes": 38974,
-    "webpBytes": 55862
-  },
-  {
-    "project": "brewmind",
-    "width": 1280,
-    "avifBytes": 69650,
-    "webpBytes": 108732
-  },
-  {
     "project": "mychatpdf",
     "width": 480,
     "avifBytes": 11994,

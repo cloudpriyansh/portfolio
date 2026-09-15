@@ -1,12 +1,5 @@
 [
   {
-    "id": "brewmind",
-    "source": "output/imagegen/projects/brewmind-original.png",
-    "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Espresso cup and portafilter linked to cited passages in translucent brewing-PDF pages; warm ivory, forest green, copper. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
-    "tool": "built-in imagegen",
-    "provenance": "AI-generated concept, not shipped UI"
-  },
-  {
     "id": "mychatpdf",
     "source": "output/imagegen/projects/mychatpdf-original.png",
     "promptSummary": "Use case: stylized-concept. Asset type: wide 8:5 portfolio cover. Editorial premium 3D concept illustration. Subject: Open PDF with a search beam highlighting one passage and a connected answer card; warm ivory, forest green, slate blue. Simple clear composition; tactile materials and polished lighting. No brand logos, readable words, watermark, fake UI screenshot or unverified outcomes.",
@@ -56,4 +49,3 @@
     "provenance": "AI-generated concept, not shipped UI"
   }
 ]
-

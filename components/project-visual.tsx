@@ -11,7 +11,6 @@ export function ProjectVisual({id, sizes = '(max-width: 760px) calc(100vw - 40px
       </picture>
       {id==='voice-agent' && <figcaption className={styles.concept}>AI VOICE AGENT · CONCEPT VISUAL</figcaption>}
       {artwork.concept && <figcaption className={styles.concept}>AI-GENERATED · CONCEPT VISUAL</figcaption>}
-      {id==='growstack' && <figcaption className={styles.metric}><strong>330M+</strong> records</figcaption>}
     </figure>;
   }
   if(id==='urecruits')return <div className="project-visual recruiting-visual" aria-label="Recruitment workflow: resume parsing, structured evaluation, and recruiter review"><div className="visual-label"><Layers size={15}/> HUMAN-CENTERED HIRING</div><div className="resume-workflow"><div className="document-stack"><div className="resume-sheet"><FileText size={24}/><b>Candidate profile</b><i/><i/><i/><div className="sheet-tags"><span>Skills</span><span>Experience</span></div></div></div><div className="review-steps"><span><Check size={14}/> Parse & structure</span><span><Check size={14}/> Match & evaluate</span><span><Check size={14}/> Recruiter review</span></div></div><span className="visual-footnote">AI-ASSISTED. HUMAN-REVIEWED.</span></div>;

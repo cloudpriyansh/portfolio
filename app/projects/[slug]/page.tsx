@@ -79,6 +79,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </section>
       {project.caseStudy && <div className={styles.caseStudy}>
+        {project.caseStudy.role && <section aria-labelledby="role-title"><div className="eyebrow">MY CONTRIBUTION</div><h2 id="role-title">What I built</h2><p>{project.caseStudy.role}</p></section>}
         <section aria-labelledby="problem-title"><div className="eyebrow">THE PROBLEM</div><h2 id="problem-title">What this solves</h2><p>{project.caseStudy.problem}</p></section>
         <section aria-labelledby="architecture-title"><div className="eyebrow">ARCHITECTURE</div><h2 id="architecture-title">How it works</h2><p>{project.caseStudy.architecture}</p></section>
         <section aria-labelledby="workflow-title"><div className="eyebrow">ONE WORKFLOW</div><h2 id="workflow-title">From input to outcome</h2><p>{project.caseStudy.workflow}</p></section>

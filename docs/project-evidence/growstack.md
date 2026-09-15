@@ -2,7 +2,8 @@
 
 | Claim | Evidence | Confidence / boundary | Public wording |
 | --- | --- | --- | --- |
-| Implemented workflow | `Growstack-Backend-PythonService/src/chat/langgraph_manager.py` | Source inspected; runtime and personal ownership unverified | Described as repository capability. |
-| Supporting component or scope | `Growstack-Backend-PythonService/src/services/export_tracking/preview/preview_service.py` | Implementation or source documentation; measured impact unverified | Benefit stated as functional outcome. |
+| Personally built Python backend service | Owner confirmation in this portfolio request; `Growstack-Backend-PythonService/src/chat/langgraph_manager.py` | Personal service ownership confirmed; wider product ownership unverified | I built the Python analytics backend service. |
+| Filter graph | `Growstack-Backend-PythonService/src/agents/filter_agent/graph.py` | Graph construction observed; runtime unverified | Intent classification, tool loop, and structured output. |
+| Preview and tracked exports | `Growstack-Backend-PythonService/src/services/export_tracking/main_service.py` | Service routing observed; quantitative benefit unverified | Preview and export paths are separate and exports are tracked. |
 
-No source screenshots were selected. Covers without real images are labeled implementation diagrams; existing covers retain their prior provenance records. Personal role and quantitative benefit need owner confirmation.
+The existing cover is AI-generated concept artwork, not a screenshot. No reproducible dataset-size benchmark or quantified outcome was verified.

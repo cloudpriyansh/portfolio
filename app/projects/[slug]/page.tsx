@@ -20,13 +20,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find(project => project.id === slug);
   if (!project) notFound();
   const title = `${project.name}: ${project.technologies.slice(0, 2).join(" & ")} | Priyansh Dobariya`;
+  const socialTitle = `${project.name} — ${project.title.replace(/[.!?]+$/, '')} | Priyansh Dobariya`;
   const url = `${siteUrl}/projects/${project.id}/`;
-  const image = projectArtwork[project.id] ? `${siteUrl}/projects/${project.id}-1280.webp` : null;
+  const image = `${siteUrl}/social/projects/${project.id}.jpg`;
+  const imageAlt = projectArtwork[project.id]?.alt || `${project.name}, a project by Priyansh Dobariya`;
   return {
     title, description: project.description, alternates: { canonical: url },
-    openGraph: { type: 'website', title, description: project.description, url, siteName: profile.name,
-      images: image ? [{ url: image, width: 1280, height: 800, alt: projectArtwork[project.id].alt }] : [] },
-    twitter: { card: image ? 'summary_large_image' : 'summary', title, description: project.description, images: image ? [image] : [] },
+    openGraph: { type: 'website', locale: 'en_IN', title: socialTitle, description: project.description, url, siteName: profile.name,
+      images: [{ url: image, width: 1200, height: 630, type: 'image/jpeg', alt: imageAlt }] },
+    twitter: { card: 'summary_large_image', title: socialTitle, description: project.description, images: [image] },
   };
 }
 

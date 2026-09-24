@@ -1,0 +1,31 @@
+# Interactive demo implementation notes
+
+These are browser-only representative simulations. Synthetic companies, documents, event listings, leads, products, candidates, prices, and conversations are invented for demonstration. No demo API or provider call is made. Source applications were inspected for workflow shape; their components were not copied wholesale because they depend on separate routers, state stores, authentication, APIs, and design systems. The portfolio uses its own UI components and adapts the source products' journeys.
+
+| Project | Source basis | Visitor journey / alternate case |
+| --- | --- | --- |
+| Growstack AI | `BACKUP/Growstack/Growstack-Backend-PythonService/src/agents/filter_agent/graph.py` and `src/services/export_tracking/main_service.py` | Interpret question, refine filters, preview and export synthetic rows / widen an empty result |
+| uRecruits | `uR/FE/apps/recruitments/screen/LiveChat.tsx`, `styles/LiveChat.scss`, `uR/FE/apps/recruitment/create-job/util/helper.ts`, `uR/BE/libs/agents/src/orchestrator/orchestrator.service.ts`, `src/nodes/supervisor/supervisor.node.ts`, and `src/nodes/interview-scheduling/interview-scheduling-graph.ts` | Watch 19 animated, selectable sample conversations in a source-UI-inspired two-pane uR Agent workspace covering the five specialists, their tool routes, and the frontend's Jobs, Workflows, Assessment, Scheduler, and AI Pre-Screening tabs |
+| Zyberon AI | `BACKUP/zyberon-ai/app/dashboard/meta-ads/actions.ts` | Select store product, draft campaign and submit locally / account limit |
+| AI Voice Agent | `BACKUP/AI-Outbound/AI-Outbound-BE/services/call_initiation_service.py` | Step through a call and choose follow-up / no answer or opt-out |
+| MyChatPDF | `mychatpdf/frontend/src/features/dashboard/DashboardPage.tsx`; `mychatpdf/backend/app/services/chat.py` | Ask a sample document and jump to a passage / unsupported question |
+| AI Workforce Engine | `BACKUP/bitontree-force-engine/core/router.py` | Step through routing and handoffs / unsupported task or tool failure |
+| Top Cars Sales Agent | `BACKUP/n8n_tobi/n8n_json/1. Top Cars Main Agent.json` | Inspect webhook, vehicle, AI agent, availability, PPF, coating, tint, warranty, or escalation branch, and reply / simulated failure and retry |
+| Hotel Social Media Agent | `n8n_tobi/backups/Hotel_Social_Media_EtBfnzIS7iH8yRQP_backup_2026-07-31.json` | Inspect normalize, rule, draft, and human approval stages / praise, complaint escalation, rejection, or retry |
+| EPulse Event Discovery | `BACKUP/E-Pulse/epulse-hermes-agent/app/services` | Filter, deduplicate, shortlist, and export synthetic events / restore a duplicate |
+| Trading Strategy & Execution Engine | `40-minute-auto-trader/python-engine/README.md` and `ui/src/views/Strategies` | Step through synthetic candles and ledger gates / block trade or reconcile mismatch |
+| SketchAPaw | `SketchAPawFE/app/lib/sketchapaw/workflow.server.ts` and custom storefront flow | Choose sample pet, style, background, caption and format, review, and create a simulated order / change choices or reset |
+
+The n8n graphs are curated views of representative paths; they are not importable workflow exports. They intentionally contain no credentials, expressions, webhook URLs, pinned data, or customer records. They use source-observed node or subworkflow names where possible and short plain-language descriptions. Actual network calls, model responses, graph routing, trades, checkouts, uploads, PDF parsing, and appointments are not reproduced. The labels in the UI disclose that limitation.
+
+The uR Agent demo uses curated request examples instead of a free-form AI promise. It adapts the actual `LiveChat` layout, teal/grey message treatment, five tabs, suggestion chips, input bar, agent avatar, and reply feedback. The source SVG avatar was optimized to a 2.6 KB WebP under `public/demos/urecruits/`. Tours show source-observed specialist and tool names, but all messages, counts, candidates, records, and outcomes are fixtures. Playback, pause, step, replay, tab selection, route disclosure, session reset, and local feedback are browser state only. The shared confirmation helper in the source describes a staged rollout; the walkthrough does not assert that every production specialist uses the same gate.
+
+The three optimized SketchAPaw style examples under `public/demos/sketchapaw/` are derived from the source storefront's public style-gallery WebP images. They illustrate styles only; the large pet preview is a CSS composition and does not imply image generation from a visitor's photo.
+
+All 11 demo pages now open inside one Mac-style local-preview frame. The uR Agent retains its source-UI-inspired animated chat. The other ten have a four-stage guided tour with project-specific visual language and source-grounded narrative; a `Try it yourself` tab exposes the existing hands-on simulation without losing its filters, approvals, exports, or reset. The tour's timeline, section navigation, play/pause/replay, next/back, and hands-on link are local controls. Autoplay is disabled for reduced-motion preferences and stops when the site's animation pause preference is enabled. Decorative browser lights are not browser actions.
+
+Control inventory: each demo's global reset remounts its local state. Selectors change the visible scenario or data; next/run advances a local step; approve/reject gates local workflow progression; cancel prevents local record creation; local export downloads the current rows. Disabled controls explain the current state in adjacent text. No demo state is persisted.
+
+The existing static page, metadata, contact route, hosting configuration, and private preview indexing remain in place. The demo launcher loads its interactive code only when opened; the four experience groups are split into separate client chunks.
+
+Verification: TypeScript typecheck, production build, and the existing SEO script pass. All 11 demos were opened and exercised in a browser, including the n8n approval path and the SketchAPaw order path. At a narrow mobile viewport, none of the 11 open guided-tour or hands-on routes had document-level horizontal overflow. Browser error logs were empty during that sweep. These simulations need no backend and store no demo state beyond the current browser component session.

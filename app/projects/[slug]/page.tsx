@@ -6,6 +6,7 @@ import { Header } from '@/components/header';
 import { Effects } from '@/components/effects';
 import { ScrollPattern } from '@/components/scroll-pattern';
 import { ProjectVisual } from '@/components/project-visual';
+import { DemoLauncher } from '@/components/demos/demo-launcher';
 import { profile, projects } from '@/lib/content';
 import { projectArtwork } from '@/lib/project-art';
 import { siteUrl } from '@/lib/site';
@@ -64,6 +65,7 @@ export default async function ProjectPage({ params }: Props) {
         <p className={styles.description}>{project.description}</p>
       </header>
       <div className={styles.cover}><ProjectVisual id={project.id} priority sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), (max-width: 1416px) calc(100vw - 112px), 1304px"/></div>
+      <DemoLauncher slug={project.id} name={project.id === 'urecruits' ? 'uR Agent' : project.name}/>
       {project.id === 'zyberon' && <section className={styles.productContext} aria-labelledby="product-title">
         <div className="eyebrow">THE PRODUCT</div><h2 id="product-title">One workspace. A connected AI workforce.</h2>
         <p>Zyberon brings Shopify workflows together across marketing, customer service, and business operations.</p>

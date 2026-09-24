@@ -1,5 +1,5 @@
 import { ExpertiseProjects } from '@/components/expertise-projects';
-import { ArrowDown, ArrowUpRight, ArrowUp, Download, Sparkles, Linkedin, GraduationCap, Workflow } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, ArrowUp, Sparkles, Linkedin, GraduationCap, Workflow } from 'lucide-react';
 import { BrandMark } from '@/components/brand-mark';
 import { Contact } from '@/components/contact';
 import { Header } from '@/components/header';
@@ -26,7 +26,7 @@ export default function Home() {
     <a className="skip-link" href="#main">Skip to content</a><Effects/><Header/>
     <main id="main">
       <section className="hero container" aria-labelledby="hero-title">
-        <div className="hero-copy"><div className="eyebrow"><span className="tiny-line"/> FULL-STACK &amp; APPLIED AI ENGINEER</div><h1 id="hero-title">Human ideas.<br/><span className="serif">Intelligent</span><br/>execution<span className="accent">.</span></h1><p className="hero-intro">Hey, I’m <strong>Priyansh Dobariya.</strong><br/>I’m a full-stack and Applied AI engineer building web products, LLM applications, and multi-agent systems.<br className="desktop-break"/> From the interface to the API. From idea to production.</p><div className="hero-actions"><a className="button button-primary" href="#work">Explore my work <ArrowDown size={17}/></a><a className="text-link" href="/Priyansh_Resume.pdf" download>Download CV <Download size={17}/></a></div></div>
+        <div className="hero-copy"><div className="eyebrow"><span className="tiny-line"/> FULL-STACK &amp; APPLIED AI ENGINEER</div><h1 id="hero-title">Human ideas.<br/><span className="serif">Intelligent</span><br/>execution<span className="accent">.</span></h1><p className="hero-intro">Hey, I’m <strong>Priyansh Dobariya.</strong><br/>I’m a full-stack and Applied AI engineer building web products, LLM applications, and multi-agent systems.<br className="desktop-break"/> From the interface to the API. From idea to production.</p><div className="hero-actions"><a className="button button-primary" href="#work">Explore my work <ArrowDown size={17}/></a></div></div>
         <div className="hero-stage" data-ambient><div className="scene-grid" aria-hidden="true"/><FloatingTechnologies/><div className="celestial" aria-hidden="true"><span className="sun-disc"/></div><div className="scene-stars" aria-hidden="true">✧ <span>✦</span> · <b>✧</b></div><div className="character-space"><div className="character-sprite" role="img" aria-label="Animated developer character working on a laptop"/></div><div className="scene-caption"><Sparkles size={16}/><span>A little curiosity. A lot of building.</span></div><span className="scene-coordinate">IDEA → INTELLIGENCE → IMPACT</span></div>
         <div className="hero-bottom"><span>Based in India · Building for everywhere</span><a href="#work">SCROLL TO EXPLORE <ArrowDown size={14}/></a><span>CRAFTED WITH CURIOSITY ↗</span></div>
       </section>

@@ -29,7 +29,7 @@ export function FloatingTechnologies() {
 }
 
 export function TechnologyMarquee() {
-  return <div className="technology-marquee container" data-ambient aria-label={`Technologies: ${technologies.map(tech => tech.name).join(', ')}`}>
+  return <div className="technology-marquee container" data-ambient role="group" aria-label={`Technologies: ${technologies.map(tech => tech.name).join(', ')}`}>
     <div className="technology-marquee-heading"><span>ONE CONNECTED STACK</span><span>Interface → API → Intelligence</span></div>
     <div className="technology-marquee-window"><div className="technology-marquee-track ambient-moving" aria-hidden="true">{[0,1].map(copy => <div className="technology-marquee-set" key={copy}>{technologies.map(tech => <div className="technology-token" key={tech.slug} style={{ '--logo-color': tech.color } as CSSProperties}><TechnologyMark slug={tech.slug}/><span>{tech.name}</span></div>)}</div>)}</div></div>
   </div>;

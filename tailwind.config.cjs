@@ -6,6 +6,6 @@ module.exports = {
     path.join(__dirname, 'components/**/*.{js,ts,jsx,tsx,mdx}'),
     path.join(__dirname, 'lib/**/*.{js,ts,jsx,tsx}')
   ],
-  corePlugins: { preflight: false },
+  corePlugins: { preflight: false, container: false },
   theme: { extend: {} },
 };

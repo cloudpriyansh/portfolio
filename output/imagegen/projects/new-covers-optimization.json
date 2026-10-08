@@ -2,127 +2,169 @@
   {
     "project": "mychatpdf",
     "width": 480,
-    "avifBytes": 11994,
-    "webpBytes": 18868
+    "avifBytes": 9288,
+    "webpBytes": 14906
+  },
+  {
+    "project": "mychatpdf",
+    "width": 640,
+    "avifBytes": 13123,
+    "webpBytes": 22538
   },
   {
     "project": "mychatpdf",
     "width": 800,
-    "avifBytes": 22715,
-    "webpBytes": 38368
+    "avifBytes": 17461,
+    "webpBytes": 30432
   },
   {
     "project": "mychatpdf",
     "width": 1280,
-    "avifBytes": 39300,
-    "webpBytes": 74056
+    "avifBytes": 29740,
+    "webpBytes": 58650
   },
   {
     "project": "workforce-engine",
     "width": 480,
-    "avifBytes": 18004,
-    "webpBytes": 21830
+    "avifBytes": 14264,
+    "webpBytes": 17914
+  },
+  {
+    "project": "workforce-engine",
+    "width": 640,
+    "avifBytes": 20544,
+    "webpBytes": 26858
   },
   {
     "project": "workforce-engine",
     "width": 800,
-    "avifBytes": 35465,
-    "webpBytes": 46284
+    "avifBytes": 27830,
+    "webpBytes": 37654
   },
   {
     "project": "workforce-engine",
     "width": 1280,
-    "avifBytes": 63428,
-    "webpBytes": 93004
+    "avifBytes": 49909,
+    "webpBytes": 75640
   },
   {
     "project": "top-cars-n8n",
     "width": 480,
-    "avifBytes": 16689,
-    "webpBytes": 22526
+    "avifBytes": 12933,
+    "webpBytes": 18000
+  },
+  {
+    "project": "top-cars-n8n",
+    "width": 640,
+    "avifBytes": 17961,
+    "webpBytes": 26590
   },
   {
     "project": "top-cars-n8n",
     "width": 800,
-    "avifBytes": 31172,
-    "webpBytes": 45502
+    "avifBytes": 23646,
+    "webpBytes": 36700
   },
   {
     "project": "top-cars-n8n",
     "width": 1280,
-    "avifBytes": 54199,
-    "webpBytes": 86720
+    "avifBytes": 40886,
+    "webpBytes": 68606
   },
   {
     "project": "hotel-social-n8n",
     "width": 480,
-    "avifBytes": 21341,
-    "webpBytes": 28436
+    "avifBytes": 16699,
+    "webpBytes": 23154
+  },
+  {
+    "project": "hotel-social-n8n",
+    "width": 640,
+    "avifBytes": 23107,
+    "webpBytes": 34674
   },
   {
     "project": "hotel-social-n8n",
     "width": 800,
-    "avifBytes": 39387,
-    "webpBytes": 57564
+    "avifBytes": 30236,
+    "webpBytes": 46754
   },
   {
     "project": "hotel-social-n8n",
     "width": 1280,
-    "avifBytes": 66786,
-    "webpBytes": 107124
+    "avifBytes": 51299,
+    "webpBytes": 85692
   },
   {
     "project": "epulse-discovery",
     "width": 480,
-    "avifBytes": 25133,
-    "webpBytes": 30174
+    "avifBytes": 19583,
+    "webpBytes": 24494
+  },
+  {
+    "project": "epulse-discovery",
+    "width": 640,
+    "avifBytes": 28637,
+    "webpBytes": 38016
   },
   {
     "project": "epulse-discovery",
     "width": 800,
-    "avifBytes": 50208,
-    "webpBytes": 65438
+    "avifBytes": 38795,
+    "webpBytes": 52646
   },
   {
     "project": "epulse-discovery",
     "width": 1280,
-    "avifBytes": 90101,
-    "webpBytes": 127728
+    "avifBytes": 69583,
+    "webpBytes": 102860
   },
   {
     "project": "trading-engine",
     "width": 480,
-    "avifBytes": 14316,
-    "webpBytes": 19682
+    "avifBytes": 10972,
+    "webpBytes": 16072
+  },
+  {
+    "project": "trading-engine",
+    "width": 640,
+    "avifBytes": 16969,
+    "webpBytes": 25020
   },
   {
     "project": "trading-engine",
     "width": 800,
-    "avifBytes": 30922,
-    "webpBytes": 44592
+    "avifBytes": 23739,
+    "webpBytes": 35686
   },
   {
     "project": "trading-engine",
     "width": 1280,
-    "avifBytes": 59215,
-    "webpBytes": 91152
+    "avifBytes": 45463,
+    "webpBytes": 72352
   },
   {
     "project": "sketchapaw",
     "width": 480,
-    "avifBytes": 27788,
-    "webpBytes": 35790
+    "avifBytes": 21084,
+    "webpBytes": 28066
+  },
+  {
+    "project": "sketchapaw",
+    "width": 640,
+    "avifBytes": 31937,
+    "webpBytes": 44020
   },
   {
     "project": "sketchapaw",
     "width": 800,
-    "avifBytes": 60347,
-    "webpBytes": 80328
+    "avifBytes": 45036,
+    "webpBytes": 62666
   },
   {
     "project": "sketchapaw",
     "width": 1280,
-    "avifBytes": 116531,
-    "webpBytes": 166960
+    "avifBytes": 86041,
+    "webpBytes": 130064
   }
 ]

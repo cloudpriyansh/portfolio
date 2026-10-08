@@ -16,7 +16,7 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
     const steps = Array.from(stack.querySelectorAll<HTMLElement>('[data-project-step]'));
     const artwork = steps.map(step => step.querySelector<HTMLElement>('.project-visual'));
     const cards = steps.map(step => step.querySelector<HTMLElement>('[data-project-card]')!);
-    let frame = 0, anchorFrame = 0, visible = true, enabled = false, top = 24;
+    let frame = 0, measureFrame = 0, anchorFrame = 0, visible = false, enabled = false, top = 24;
 
     const paint = () => {
       frame = 0;
@@ -32,6 +32,7 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
     };
     const schedule = () => { if (!frame && visible && enabled) frame = requestAnimationFrame(paint); };
     const measure = () => {
+      measureFrame = 0;
       const height = Math.max(...cards.map(card => card.offsetHeight));
       // Tall cards, short screens, and enlarged text retain ordinary scrolling.
       enabled = !reduced.matches && root.dataset.motion !== 'paused' && height + 64 <= innerHeight;
@@ -41,6 +42,11 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
       cards.forEach(card => card.style.removeProperty('--covered'));
       artwork.forEach(art => art?.style.removeProperty('--art-entry'));
       schedule();
+    };
+    // ResizeObserver and viewport changes can arrive together. Measure once,
+    // outside the observer callback, before writing the sticky layout styles.
+    const scheduleMeasure = () => {
+      if (!measureFrame) measureFrame = requestAnimationFrame(measure);
     };
     const scrollToStep = (index: number) => {
       if (index < 0) return;
@@ -70,26 +76,27 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
       visible = entry.isIntersecting;
       if (visible) schedule();
     }, { rootMargin: '100px' });
-    const size = new ResizeObserver(measure);
-    const preferences = new MutationObserver(measure);
+    const size = new ResizeObserver(scheduleMeasure);
+    const preferences = new MutationObserver(scheduleMeasure);
     cards.forEach(card => size.observe(card));
     visibility.observe(stack);
     preferences.observe(root, { attributes: true, attributeFilter: ['data-motion'] });
     window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', measure, { passive: true });
+    window.addEventListener('resize', scheduleMeasure, { passive: true });
     window.addEventListener('hashchange', onHash);
-    reduced.addEventListener('change', measure);
+    reduced.addEventListener('change', scheduleMeasure);
     stack.addEventListener('focusin', onFocus);
-    measure();
+    scheduleMeasure();
     onHash();
     return () => {
       cancelAnimationFrame(frame);
+      cancelAnimationFrame(measureFrame);
       cancelAnimationFrame(anchorFrame);
       visibility.disconnect(); size.disconnect(); preferences.disconnect();
       window.removeEventListener('scroll', schedule);
-      window.removeEventListener('resize', measure);
+      window.removeEventListener('resize', scheduleMeasure);
       window.removeEventListener('hashchange', onHash);
-      reduced.removeEventListener('change', measure);
+      reduced.removeEventListener('change', scheduleMeasure);
       stack.removeEventListener('focusin', onFocus);
     };
   }, []);

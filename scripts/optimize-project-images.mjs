@@ -10,12 +10,12 @@ const target = 'public/projects';
 await mkdir(target, { recursive: true });
 const report = [];
 for (const project of projects) {
-  for (const width of [480, 800, 1280]) {
+  for (const width of [480, 640, 800, 1280]) {
     const height = Math.round(width * 5 / 8);
     const resized = sharp(project.source).rotate().resize(width, height, { fit: 'cover', position: 'centre' });
     const outputs = await Promise.all([
-      resized.clone().avif({ quality: 55, effort: 5 }).toFile(path.join(target, `${project.id}-${width}.avif`)),
-      resized.clone().webp({ quality: 82, effort: 5 }).toFile(path.join(target, `${project.id}-${width}.webp`)),
+      resized.clone().avif({ quality: 48, effort: 5 }).toFile(path.join(target, `${project.id}-${width}.avif`)),
+      resized.clone().webp({ quality: 76, effort: 5 }).toFile(path.join(target, `${project.id}-${width}.webp`)),
     ]);
     report.push({ project: project.id, width, avifBytes: outputs[0].size, webpBytes: outputs[1].size });
   }

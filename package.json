@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "next build --webpack && node scripts/package-worker.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:performance": "node scripts/check-performance.mjs"
   },
   "dependencies": {
     "lucide-react": "0.522.0",

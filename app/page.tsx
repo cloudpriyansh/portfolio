@@ -6,6 +6,7 @@ import { Header } from '@/components/header';
 import { Effects } from '@/components/effects';
 import { ProjectShowcase } from '@/components/project-showcase';
 import { FloatingTechnologies } from '@/components/technology';
+import { HeroCharacter } from '@/components/hero-character';
 import { About } from '@/components/about';
 import { Toolkit } from '@/components/toolkit';
 import { profile, projects } from '@/lib/content';
@@ -21,16 +22,15 @@ export default function Home() {
     ...projects.map(project=>({'@type':'CreativeWork',name:project.name,description:project.description,about:project.category,image:siteUrl&&projectArtwork[project.id]?`${siteUrl}/projects/${project.id}-1280.webp`:undefined,contributor:{'@id':`${siteUrl||''}/#priyansh`},url:siteUrl?`${siteUrl}/projects/${project.id}/`:undefined}))
   ]};
   return <>
-    <link rel="preload" as="image" href="/developer-sprites.webp"/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/>
     <a className="skip-link" href="#main">Skip to content</a><Effects/><Header/>
     <main id="main">
       <section className="hero container" aria-labelledby="hero-title">
         <div className="hero-copy"><div className="eyebrow"><span className="tiny-line"/> FULL-STACK &amp; APPLIED AI ENGINEER</div><h1 id="hero-title">Human ideas.<br/><span className="serif">Intelligent</span><br/>execution<span className="accent">.</span></h1><p className="hero-intro">Hey, I’m <strong>Priyansh Dobariya.</strong><br/>I’m a full-stack and Applied AI engineer building web products, LLM applications, and multi-agent systems.<br className="desktop-break"/> From the interface to the API. From idea to production.</p><div className="hero-actions"><a className="button button-primary" href="#work">Explore my work <ArrowDown size={17}/></a></div></div>
-        <div className="hero-stage" data-ambient><div className="scene-grid" aria-hidden="true"/><FloatingTechnologies/><div className="celestial" aria-hidden="true"><span className="sun-disc"/></div><div className="scene-stars" aria-hidden="true">✧ <span>✦</span> · <b>✧</b></div><div className="character-space"><div className="character-sprite" role="img" aria-label="Animated developer character working on a laptop"/></div><div className="scene-caption"><Sparkles size={16}/><span>A little curiosity. A lot of building.</span></div><span className="scene-coordinate">IDEA → INTELLIGENCE → IMPACT</span></div>
+        <div className="hero-stage" data-ambient><div className="scene-grid" aria-hidden="true"/><FloatingTechnologies/><div className="celestial" aria-hidden="true"><span className="sun-disc"/></div><div className="scene-stars" aria-hidden="true">✧ <span>✦</span> · <b>✧</b></div><HeroCharacter/><div className="scene-caption"><Sparkles size={16}/><span>A little curiosity. A lot of building.</span></div><span className="scene-coordinate">IDEA → INTELLIGENCE → IMPACT</span></div>
         <div className="hero-bottom"><span>Based in India · Building for everywhere</span><a href="#work">SCROLL TO EXPLORE <ArrowDown size={14}/></a><span>CRAFTED WITH CURIOSITY ↗</span></div>
       </section>
-      <div className="ticker" data-ambient aria-label="Specialties: full-stack development, React and Next.js, backend systems, and applied AI"><div className="ticker-track ambient-moving" aria-hidden="true">{[0,1].map(n=><div className="ticker-set" key={n}><span>FULL-STACK DEVELOPMENT</span><span className="ticker-star">✳</span><span>REACT &amp; NEXT.JS</span><span className="ticker-star">✳</span><span>APPLIED AI</span><span className="ticker-star">✳</span><span>BACKEND SYSTEMS</span><span className="ticker-star">✳</span></div>)}</div></div>
+      <div className="ticker" data-ambient role="img" aria-label="Specialties: full-stack development, React and Next.js, backend systems, and applied AI"><div className="ticker-track ambient-moving" aria-hidden="true">{[0,1].map(n=><div className="ticker-set" key={n}><span>FULL-STACK DEVELOPMENT</span><span className="ticker-star">✳</span><span>REACT &amp; NEXT.JS</span><span className="ticker-star">✳</span><span>APPLIED AI</span><span className="ticker-star">✳</span><span>BACKEND SYSTEMS</span><span className="ticker-star">✳</span></div>)}</div></div>
       <section id="work" className="section container" aria-labelledby="work-title"><div className="section-heading" data-reveal="wipe"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title">Ideas, put to <span className="serif">work.</span></h2></div><p className="section-lede">Real problems. Thoughtful systems.<br/>A few things I’ve helped bring to life.</p></div><ProjectShowcase/><div className="work-note" data-reveal><span>Always exploring. Always building.</span><a className="text-link" href="#contact">Have something in mind? <ArrowUpRight size={16}/></a></div></section>
       <About/>
       <Toolkit/>

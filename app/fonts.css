@@ -1,0 +1,57 @@
+/* Stable self-hosted URLs allow font preloads in the exported HTML itself. */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400 700;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400 800;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/instrument-serif.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/instrument-serif-italic.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+/* Preserve the metric-adjusted fallbacks from the previous next/font output. */
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Arial');
+  ascent-override: 94.36%;
+  descent-override: 29.49%;
+  line-gap-override: 0%;
+  size-adjust: 105.13%;
+}
+@font-face {
+  font-family: 'Manrope Fallback';
+  src: local('Arial');
+  ascent-override: 106.45%;
+  descent-override: 29.96%;
+  line-gap-override: 0%;
+  size-adjust: 100.14%;
+}
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  src: local('Arial');
+  ascent-override: 128.92%;
+  descent-override: 40.37%;
+  line-gap-override: 0%;
+  size-adjust: 76.79%;
+}
+:root {
+  --font-sans: 'DM Sans', 'DM Sans Fallback';
+  --font-heading: 'Manrope', 'Manrope Fallback';
+  --font-serif: 'Instrument Serif', 'Instrument Serif Fallback';
+}

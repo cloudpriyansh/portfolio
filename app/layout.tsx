@@ -1,11 +1,8 @@
 import type { Metadata, Viewport } from 'next';
-import localFont from 'next/font/local';
 import { profile } from '@/lib/content';
 import { siteUrl,isIndexable } from '@/lib/site';
 import './globals.css';
-const sans=localFont({src:'../public/fonts/dm-sans.woff2',variable:'--font-sans',weight:'400 700',display:'swap'});
-const heading=localFont({src:'../public/fonts/manrope.woff2',variable:'--font-heading',weight:'400 800',display:'swap'});
-const serif=localFont({src:[{path:'../public/fonts/instrument-serif.woff2',weight:'400',style:'normal'},{path:'../public/fonts/instrument-serif-italic.woff2',weight:'400',style:'italic'}],variable:'--font-serif',display:'swap'});
+import './fonts.css';
 export const metadata:Metadata={
   ...(siteUrl?{metadataBase:new URL(siteUrl),alternates:{canonical:'/'}}:{}),
   title:'Priyansh Dobariya — Full-Stack & Applied AI Engineer',description:profile.description,
@@ -20,4 +17,14 @@ export const metadata:Metadata={
 };
 export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:[{media:'(prefers-color-scheme: light)',color:'#f8f8f2'},{media:'(prefers-color-scheme: dark)',color:'#121d25'}]};
 const themeScript=`try{const d=document.documentElement;d.dataset.theme=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');d.dataset.motion=localStorage.getItem('portfolio-motion')||'running'}catch{}`;
-export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){return <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${sans.variable} ${heading.variable} ${serif.variable}`}><head><script dangerouslySetInnerHTML={{__html:themeScript}}/></head><body>{children}</body></html>;}
+export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){
+  return <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <head>
+      <link rel="preload" href="/fonts/manrope.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+      <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+      <link rel="preload" href="/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+      <script dangerouslySetInnerHTML={{__html:themeScript}}/>
+    </head>
+    <body>{children}</body>
+  </html>;
+}

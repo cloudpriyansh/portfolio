@@ -2,37 +2,49 @@
   {
     "project": "growstack",
     "width": 480,
-    "avifBytes": 32057,
-    "webpBytes": 36444
+    "avifBytes": 24763,
+    "webpBytes": 29700
+  },
+  {
+    "project": "growstack",
+    "width": 640,
+    "avifBytes": 38531,
+    "webpBytes": 47874
   },
   {
     "project": "growstack",
     "width": 800,
-    "avifBytes": 69461,
-    "webpBytes": 83500
+    "avifBytes": 54072,
+    "webpBytes": 68410
   },
   {
     "project": "growstack",
     "width": 1280,
-    "avifBytes": 127856,
-    "webpBytes": 166964
+    "avifBytes": 100259,
+    "webpBytes": 136320
   },
   {
     "project": "urecruits",
     "width": 480,
-    "avifBytes": 12488,
-    "webpBytes": 17376
+    "avifBytes": 9709,
+    "webpBytes": 14080
+  },
+  {
+    "project": "urecruits",
+    "width": 640,
+    "avifBytes": 13189,
+    "webpBytes": 20492
   },
   {
     "project": "urecruits",
     "width": 800,
-    "avifBytes": 22058,
-    "webpBytes": 35318
+    "avifBytes": 16809,
+    "webpBytes": 27906
   },
   {
     "project": "urecruits",
     "width": 1280,
-    "avifBytes": 37213,
-    "webpBytes": 67086
+    "avifBytes": 28122,
+    "webpBytes": 52102
   }
 ]

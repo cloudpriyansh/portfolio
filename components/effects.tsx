@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 export function Effects() {
   const pathname = usePathname();
   const cursor = useRef<HTMLDivElement>(null);
+  const progressBar = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -29,11 +30,10 @@ export function Effects() {
     const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('revealed'); reveal.unobserve(entry.target); }
     }), { threshold: .08 });
-    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach(el => {
-      if (!stopped() && el.getBoundingClientRect().top > innerHeight * .95) {
-        el.classList.add('will-reveal'); reveal.observe(el);
-      }
-    });
+    // Complete geometry reads before adding classes that invalidate layout.
+    const toReveal = stopped() ? [] : Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
+      .filter(el => el.getBoundingClientRect().top > innerHeight * .95);
+    toReveal.forEach(el => { el.classList.add('will-reveal'); reveal.observe(el); });
 
     const paintScroll = () => {
       scrollFrame = 0;
@@ -47,7 +47,8 @@ export function Effects() {
         const progress = clamp((innerHeight * .9 - rect.top) / (innerHeight * .55 + rect.height * .5));
         return { svg, progress };
       });
-      root.style.setProperty('--scroll-progress', String(max > 0 ? scrollY / max : 0));
+      // Keep this update local: an inherited root variable restyles the whole page.
+      if (progressBar.current) progressBar.current.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
       if (paused) return;
       if (hero && visible.has(hero)) {
         hero.style.setProperty('--hero-offset', `${Math.min(scrollY * .1, 55)}px`);
@@ -128,5 +129,5 @@ export function Effects() {
     };
   }, [pathname]);
 
-  return <><div className="reading-progress" aria-hidden="true"/><div ref={cursor} className="custom-cursor" aria-hidden="true"><span/></div></>;
+  return <><div ref={progressBar} className="reading-progress" aria-hidden="true"/><div ref={cursor} className="custom-cursor" aria-hidden="true"><span/></div></>;
 }

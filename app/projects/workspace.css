@@ -1,0 +1,5 @@
+/* Product workspace utilities are only needed on project routes. */
+/* Preflight stays disabled; base initializes gradient, ring, and shadow vars. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
